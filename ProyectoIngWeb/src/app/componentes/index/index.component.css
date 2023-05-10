@@ -1,0 +1,16 @@
+#box2 {
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+}
+
+.hide-link {
+    display: none;
+  }
+
+a {
+    color: black;
+    text-decoration: none;
+}

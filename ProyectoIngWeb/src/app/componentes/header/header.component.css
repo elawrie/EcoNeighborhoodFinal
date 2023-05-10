@@ -1,0 +1,10 @@
+#box {
+    background-color: #667fc8;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    height: 120px;
+    width: 140px;
+}
