@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CrearcuentaComponent } from './crearcuenta.component';
+
 
 describe('CrearcuentaComponent', () => {
   let component: CrearcuentaComponent;
@@ -18,4 +18,7 @@ describe('CrearcuentaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
+
+
