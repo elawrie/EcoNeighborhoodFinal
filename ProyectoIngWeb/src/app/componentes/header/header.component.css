@@ -8,3 +8,17 @@
     height: 120px;
     width: 140px;
 }
+
+#panelDeBotones {
+    background-color: rgb(104, 127, 200);
+    padding: 10px;
+  }
+
+li {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
