@@ -17,37 +17,39 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="login">
-            <!--FORMULARIO-->
-            <form class="row g-3 needs-validation">
+        <div class="container">
+            <section>
+                <!--FORMULARIO-->
+                <form id="myform">
 
-                <ul id="campos">
-                    <li>
-                        <div class="col-md-12">
-                            <label for="email" class="form-label">Correo electrónico</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="col-md-12">
-                            <label for="contrasenya" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasenya" name="contrasenya" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="col-12">
-                              <button id="botonenviar">Iniciar sesión</button>                       
-                        </div>
-                    </li>
-                    <li>
-                        <div class="col-12">
-                            <button id="botonprincipal">
-                                <a routerLink="/paginaprincipal" routerLinkActive="active hide-link">Ir a la pagina principal</a>
-                            </button>                       
-                        </div>
-                    </li>
-                </ul>
-            </form>
+                    <ul id="campos">
+                        <li>
+                            <div class="col-md-12">
+                                <label for="email" class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-md-12">
+                                <label for="contrasenya" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="contrasenya" name="contrasenya" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-12">
+                                <button id="botonenviar">Submit</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col-12">
+                                  <button id="botonprincipal">
+                                    <a routerLink="/paginaprincipal" routerLinkActive="active hide-link">Ir a la pagina principal</a>
+                                  </button>                       
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </section>
         </div>
         
         <script src="" async defer></script>

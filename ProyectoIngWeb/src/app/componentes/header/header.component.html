@@ -4,51 +4,66 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="header.component.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div id="box">
-            <button id="logobutton">
-                <a routerLink="/paginaprincipal" routerLinkActive="active hide-link"><img id="logo" src="../../../assets/logo.png"></a>
-            </button>
-            <!-- <img id="logo" src="../../../assets/logo.png"> -->
-            <h1>Eco Neighborhood</h1>
-        </div>
-        <div id="panelDeBotones">
-            <li>
-                <button>
-                    <a routerLink="/formulario" routerLinkActive="active hide-link">Formulario</a>
-                </button>
-                <button>
-                    <a routerLink="/sugerencias" routerLinkActive="active hide-link">Sugerencias</a>
-                </button>
-                <button>
-                    <a routerLink="/ranking" routerLinkActive="active hide-link">Ranking</a>
-                </button>
-                <button>
-                    <a routerLink="/calendario" routerLinkActive="active hide-link">Calendario</a>
-                </button>
-                <button>
-                    <a routerLink="/desafios" routerLinkActive="active hide-link">Desafios</a>
-                </button>
-                <button>
-                    <a routerLink="/wiki" routerLinkActive="active hide-link">Wiki</a>
-                </button>
-                <button>
-                    <a routerLink="/perfil" routerLinkActive="active hide-link">Mi cuenta</a>
-                </button>
-            </li>
-        </div>
-        <!-- TODO: AGREGA BUTONES PARA EL MENU ACA -->
-    </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="header.component.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div id="box">
+    <button id="logobutton">
+      <a routerLink="/paginaprincipal" routerLinkActive="active hide-link"><img id="logo" src="../../../assets/logo.png"></a>
+    </button>
+    <h1>Eco Neighborhood</h1>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a routerLink="/formulario" routerLinkActive="active hide-link">Formulario</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/sugerencias" routerLinkActive="active hide-link">Sugerencias</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/ranking" routerLinkActive="active hide-link">Ranking</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/calendario" routerLinkActive="active hide-link">Calendario</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/desafios" routerLinkActive="active hide-link">Desafios</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/wiki" routerLinkActive="active hide-link">Wiki</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/perfil" routerLinkActive="active hide-link">Mi cuenta</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Rest of your HTML content -->
+
+  <script>
+    $(document).ready(function () {
+      $('.navbar-toggler').click(function () {
+        $('.navbar-collapse').toggleClass('show');
+      });
+    });
+  </script>
+</body>
 </html>

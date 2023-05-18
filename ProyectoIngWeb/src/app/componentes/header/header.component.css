@@ -27,3 +27,13 @@ a {
     background-color: rgb(104, 127, 200);
     border: none;
   }
+
+.navbar-brand {
+    font-weight: bold;
+    background-color: rgb(104, 127, 200);
+}
+  
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    background-color: rgb(104, 127, 200);
+}
