@@ -20,7 +20,6 @@
         <div class="container">
 
             <section>
-                <!--FORMULARIO-->
                 <form id="myform">
 
                     <ul id="campos">
@@ -59,6 +58,53 @@
             </section>
         </div>
         
+        <script>
+
+            // FIXME: NADA FUNCIONA: LAS ALERTAS NO APARECEN EN LA PAGINA 
+            $(document).ready(function(){
+		        $("#botonenviar").click(function(e){
+            // llama a la funcion de js
+                    window.alert("PRESSED");
+			        revisar();
+		        });
+	        });
+
+            function revisar(){
+            // tomar datos
+            var datos={"dato1":$('#email').val() , "dato2":$('#contrasenya').val()};
+            // consultas
+            if(validarContenidoEmail($('#email').val()) == true){
+                if(validarContenidoContrasena($('#contrasenya').val()) == true){
+                    window.location.href = "../paginaprincipal/paginaprincipal.component.html";
+                }
+                else{
+                    window.alert("Contraseña no valido");
+                }
+            }
+            else {
+                window.alert("Correo electronico no valido");
+            }
+            }
+
+            function validarContenidoEmail(email) {
+            // Busca si el correo electrónico tiene contenido
+                if (email.indexOf('@') !== -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            function validarContenidoContrasena(contrasenya) {
+            // Verifica si la contraseña tiene al menos un carácter
+                if (contrasenya.length > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
+
         <script src="" async defer></script>
     </body>
 </html>
