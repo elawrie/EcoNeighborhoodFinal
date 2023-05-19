@@ -1,6 +1,6 @@
 # EcoNeighborhood
 
-# Instrucciones de la ejecutión del proyecto 
+# Instrucciones de la ejecución del proyecto 
 - cd ProyectoIngWeb
 - ng serve
 
