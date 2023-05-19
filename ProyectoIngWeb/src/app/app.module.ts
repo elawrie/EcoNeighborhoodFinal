@@ -17,6 +17,7 @@ import { DesafiosComponent } from './componentes/desafios/desafios.component';
 import { WikiComponent } from './componentes/wiki/wiki.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { DesafioaceptadoComponent } from './componentes/desafioaceptado/desafioaceptado.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -53,7 +54,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [RouterModule],
   providers: [],

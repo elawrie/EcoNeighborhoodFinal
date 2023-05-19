@@ -1,110 +1,97 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="crearcuenta.component.css">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="container">
+<!-- 
+<div class="container">
 
-            <section>
-                <form id="myform">
+    <section>
+        <form id="myform">
 
-                    <ul id="campos">
-                        <li>
-                            <div class="col-md-12">
-                                <label for="email" class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control form-control-lg" id="email" name="email" required>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-md-12">
-                                <label for="contrasenya" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control form-control-lg" id="contrasenya" name="contrasenya" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-md-12">
-                                <label for="contrasenya2" class="form-label">Reescribir contraseña</label>
-                                <input type="password" class="form-control form-control-lg" id="contrasenya2" name="contrasenya2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-12">
-                                <button id="botonenviar">Submit</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="col-12">
-                                  <button id="botonprincipal">
-                                    <a routerLink="/paginaprincipal" routerLinkActive="active hide-link">Ir a la pagina principal</a>
-                                  </button>                       
-                            </div>
-                        </li>
-                    </ul>
-                </form>
-            </section>
-        </div>
-        
-        <script>
+            <ul id="campos">
+                <li>
+                    <div class="col-md-12">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-md-12">
+                        <label for="contrasenya" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control form-control-lg" id="contrasenya" name="contrasenya" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-md-12">
+                        <label for="contrasenya2" class="form-label">Reescribir contraseña</label>
+                        <input type="password" class="form-control form-control-lg" id="contrasenya2" name="contrasenya2" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-12">
+                        <button id="botonenviar">Submit</button>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-12">
+                            <button id="botonprincipal">
+                            <a routerLink="/paginaprincipal" routerLinkActive="active hide-link">Ir a la pagina principal</a>
+                            </button>                       
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </section>
+</div> -->
 
-            // FIXME: NADA FUNCIONA: LAS ALERTAS NO APARECEN EN LA PAGINA 
-            $(document).ready(function(){
-		        $("#botonenviar").click(function(e){
-            // llama a la funcion de js
-                    window.alert("PRESSED");
-			        revisar();
-		        });
-	        });
+<form [formGroup]="formulario" (ngSubmit)="EnviarDatos()" novalidate>
+    <ul>
+      <li><input type="text" formControlName="email" placeholder="Correo electrónico"></li>
+      <li><input type="password" formControlName="password"  placeholder="Contraseña"></li>
+      <li><input type="password" formControlName="password2" placeholder="Reescribir contraseña"></li>
+      <li><button type="submit">Enviar</button></li>
+    </ul>
+</form>
 
-            function revisar(){
-            // tomar datos
-            var datos={"dato1":$('#email').val() , "dato2":$('#contrasenya').val()};
-            // consultas
-            if(validarContenidoEmail($('#email').val()) == true){
-                if(validarContenidoContrasena($('#contrasenya').val()) == true){
-                    window.location.href = "../paginaprincipal/paginaprincipal.component.html";
-                }
-                else{
-                    window.alert("Contraseña no valido");
-                }
-            }
-            else {
-                window.alert("Correo electronico no valido");
-            }
-            }
+<!-- <script>
 
-            function validarContenidoEmail(email) {
-            // Busca si el correo electrónico tiene contenido
-                if (email.indexOf('@') !== -1) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+    // FIXME: NADA FUNCIONA: LAS ALERTAS NO APARECEN EN LA PAGINA 
+    $(document).ready(function(){
+        $("#botonenviar").click(function(e){
+    // llama a la funcion de js
+            window.alert("PRESSED");
+            revisar();
+        });
+    });
 
-            function validarContenidoContrasena(contrasenya) {
-            // Verifica si la contraseña tiene al menos un carácter
-                if (contrasenya.length > 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        </script>
+    function revisar(){
+    // tomar datos
+    var datos={"dato1":$('#email').val() , "dato2":$('#contrasenya').val()};
+    // consultas
+    if(validarContenidoEmail($('#email').val()) == true){
+        if(validarContenidoContrasena($('#contrasenya').val()) == true){
+            window.location.href = "../paginaprincipal/paginaprincipal.component.html";
+        }
+        else{
+            window.alert("Contraseña no valido");
+        }
+    }
+    else {
+        window.alert("Correo electronico no valido");
+    }
+    }
 
-        <script src="" async defer></script>
-    </body>
-</html>
+    function validarContenidoEmail(email) {
+    // Busca si el correo electrónico tiene contenido
+        if (email.indexOf('@') !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function validarContenidoContrasena(contrasenya) {
+    // Verifica si la contraseña tiene al menos un carácter
+        if (contrasenya.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script> -->

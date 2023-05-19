@@ -1,96 +1,40 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="header.component.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-  <div id="box">
-    <button id="logobutton">
-      <a routerLink="/paginaprincipal" routerLinkActive="active hide-link"><img id="logo" src="../../../assets/logo.png"></a>
-    </button>
-    <h1>Eco Neighborhood</h1>
-  </div>
 
+<div id="box">
+<button id="logobutton">
+    <a routerLink="/paginaprincipal" routerLinkActive="active hide-link"><img id="logo" src="../../../assets/logo.png"></a>
+</button>
+<h1>Eco Neighborhood</h1>
+</div>
 
-  <!-- FIXME: LA HAMBURGUESA NO APARECE -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<!-- FORMULARIO: programacion reactiva, tenemos que importar -> pruebalo -->
 
-
-  <!-- FIXME: EL MENU NO ABRE  -->
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a routerLink="/formulario" routerLinkActive="active hide-link">Formulario</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/sugerencias" routerLinkActive="active hide-link">Sugerencias</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/ranking" routerLinkActive="active hide-link">Ranking</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/calendario" routerLinkActive="active hide-link">Calendario</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/desafios" routerLinkActive="active hide-link">Desafios</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/wiki" routerLinkActive="active hide-link">Wiki</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/perfil" routerLinkActive="active hide-link">Mi cuenta</a>
-        </li>
-      </ul>
-    </div>
-  </nav> -->
-
-  <!-- <script>
-    $(document).ready(function () {
-      $('.navbar-toggler').click(function () {
-        $('.navbar-collapse').toggleClass('show');
-      });
-    });
-  </script> -->
-</body>
-</html>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+<button id="hamburguesa" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul id="navlist" class="navbar-nav ml-auto">
+    <li id="navlistelement" class="nav-item active">
+        <a routerLink="/formulario" routerLinkActive="active hide-link">Formulario</a>
+    </li>
+    <li id="navlistelement" class="nav-item">
+        <a routerLink="/sugerencias" routerLinkActive="active hide-link">Sugerencias</a>
+    </li>
+    <li id="navlistelement" class="nav-item">
+        <a routerLink="/ranking" routerLinkActive="active hide-link">Ranking</a>
+    </li>
+    <li id="navlistelement" class="nav-item">
+        <a routerLink="/calendario" routerLinkActive="active hide-link">Calendario</a>
+    </li>
+    <li id="navlistelement" class="nav-item">
+        <a routerLink="/desafios" routerLinkActive="active hide-link">Desafios</a>
+    </li>
+    <li id="navlistelement" class="nav-item">
+        <a routerLink="/wiki" routerLinkActive="active hide-link">Wiki</a>
+    </li>
+    <li id="navlistelement" class="nav-item">
+        <a routerLink="/perfil" routerLinkActive="active hide-link">Mi cuenta</a>
+    </li>
+    </ul>
+</div>
+</nav>

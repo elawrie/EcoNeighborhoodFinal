@@ -34,6 +34,31 @@ a {
 }
   
 .navbar-nav .nav-link {
-    padding: 0.5rem 1rem;
+    padding: 2rem 1rem;
+    background-color: rgb(104, 127, 200);
+}
+
+#navbarNav {
+    background-color: rgb(104, 127, 200);
+    padding: 10px;
+    margin: 0px;
+}
+
+/* #navlist {
+    padding: 10px;
+} */
+
+#navlistelement {
+    margin: 10px;
+    font-size: 20px;
+    text-shadow: 0px 0px 4px white;
+    /* background-color: white; */
+}
+
+#hamburguesa {
+    background-color: #6ec1a2;
+}
+
+#navbar {
     background-color: rgb(104, 127, 200);
 }
