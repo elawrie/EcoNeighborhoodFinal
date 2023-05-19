@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Form, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ServicioInfoService} from '../../servicio-info.service';
-import {Datos} from '../../datos';
 
 @Component({
   selector: 'app-crearcuenta',
@@ -10,44 +8,30 @@ import {Datos} from '../../datos';
 })
 
 export class CrearcuentaComponent implements OnInit {
-  title = 'ReactiveForms';
-  reactiveForm: FormGroup;
+  title = 'Angular Reactive Form';
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$')]),
+    password2: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$')])
+  })
 
-  // constructor(private fb:FormBuilder,private servicio:ServicioInfoService) {
-  //    this.formulario=this.fb.group({
-  //      email:['',[Validators.required]],
-  //      password:['',[Validators.required]],
-  //      password2:['',[Validators.required]]
-  //    });
-  // }
-
-  ngOnInit(): void {
-    this.reactiveForm = new FormGroup({
-      email: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required),
-      password2: new FormControl(null, Validators.required)
-    })
+  loginUser() {
+    console.warn(this.loginForm.value);
+    this.loginForm.reset();
   }
 
-  onSubmit(){
-    console.log(this.reactiveForm);
+  get email() {
+    return this.loginForm.get('email')
   }
-  
 
-  // EnviarDatos(){
-  //   let lista:Array<Datos>=[{
-  //      email:this.formulario.get('email')?.value,
-  //      password:this.formulario.get('password')?.value,
-  //      password2:this.formulario.get('password2')?.value
-  //     }
-  //   ];
+  get password() {
+    return this.loginForm.get('password')
+  }
 
-  //   // this.servicio.GuardarDatos(lista).subscribe(datos=>{
-  //   //   //console.log("lo que estoy recibiendo");  
-  //   //   console.log(datos);
-  //   // });
- 
-    
-  // }
+  get password2() {
+    return this.loginForm.get('password2')
+  }
+
+  ngOnInit(): void {}
 
 }

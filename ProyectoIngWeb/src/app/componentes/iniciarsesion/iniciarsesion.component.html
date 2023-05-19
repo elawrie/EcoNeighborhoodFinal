@@ -1,33 +1,37 @@
 
 <div class="container">
     <section>
-        <!--FORMULARIO-->
-        <form id="myform">
-
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
             <ul id="campos">
                 <li>
                     <div class="col-md-12">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="email">Correo electrónico</label>                        
+                        <input id="email" class="form-control" type="text" formControlName="email">
+                        <span style="color: red;" *ngIf="email && email.invalid && email.touched" >Correo necesita un valor con @</span>
                     </div>
+                    <br>
                 </li>
                 <li>
                     <div class="col-md-12">
-                        <label for="contrasenya" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="contrasenya" name="contrasenya" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+                        <label for="password">Contraseña</label>                       
+                        <input id="password" class="form-control" type="password" formControlName="password">
+                        <span style="color: red;" *ngIf="password && password.invalid && password.touched" >La contraseña tiene que contener al menos 5 caracteres un número, letra mayúscula y letra minúscula</span>
                     </div>
+                    <br>
                 </li>
                 <li>
-                    <div class="col-12">
-                        <button id="botonenviar">Submit</button>
+                    <div class="col-md-12">
+                        <button type="submit" [disabled]="loginForm.invalid">Crear cuenta</button>
                     </div>
+                    <br>
                 </li>
                 <li>
-                    <div class="col-12">
-                            <button id="botonprincipal">
-                            <a routerLink="/paginaprincipal" routerLinkActive="active hide-link">Ir a la pagina principal</a>
-                            </button>                       
+                    <div class="col-md-12">
+                        <button id="botonprincipal">
+                            <a routerLink="/paginaprincipal" routerLinkActive="active hide-link">Ir a la página principal</a>
+                        </button> 
                     </div>
+                    <br>
                 </li>
             </ul>
         </form>
