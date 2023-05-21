@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import data from '../desafioaceptado/desafios.json';
+
 
 @Component({
   selector: 'app-desafioaceptado',
@@ -6,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./desafioaceptado.component.css']
 })
 export class DesafioaceptadoComponent {
-
+  desafios = data;
 }

@@ -6,10 +6,12 @@
 <div id="desafio">
         <div id="interaccion">
         <ul>
-            <li> Interacción JS. </li>
+            <li *ngFor="let desafio of desafios">
+                <p> {{ desafio.titulo }} </p>
+                <p> {{ desafio.descripcion }}</p>
+            </li>
         </ul>
         <ul>
-            <li>Ejemplo: Con tus envoltorios plasticos  de las cosas que comes haz un ecoladrillo.</li>
         </ul><br><br>
     </div>
 </div><br><br><br>
