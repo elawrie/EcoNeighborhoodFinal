@@ -2,7 +2,10 @@
 <div id="ArticuloDestacado">
     <div id="interaccion">
         <ul>
-            <li> Acá posteriormente interacción JS para conseguir artículo destacado</li>
+            <li *ngFor="let articulo of articulos">
+                <p> {{articulo.titulo}}</p>     
+                <p> {{articulo.recurso}}</p>
+            </li>
         </ul>
     </div>
 </div>
@@ -10,7 +13,10 @@
 <div id="RecursoDelDia">
     <div id="interaccion">
         <ul>
-            <li> Acá posteriormente interacción JS para conseguir artículo </li>
+            <li *ngFor="let recurso of recursos">
+                <p> {{recurso.titulo}}</p>     
+                <p> {{recurso.recurso}}</p>
+            </li>
         </ul>
     </div>
 </div> 
