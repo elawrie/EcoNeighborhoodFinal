@@ -3,7 +3,29 @@
     "id": 1,
     "titulo": "Crea un eco ladrillo",
     "descripcion": "Con tus bolsas de plásticos que comes, crea un eco ladrillo"
+    },
+
+    {
+    "id": 2,
+    "titulo": "No compres cosas que contengan plástico",
+    "descripcion": "Ayuda a la biodiversidad y no compres cosas que tengan plástico durante una semana"
+    },
+
+    {
+    "id": 3,
+    "titulo": "No uses locomoción para movilizarte",
+    "descripcion": "Usa una bicleta o tu propio cuerpo para desplazarte durante una semana"
+    },
+
+    {
+    "id": 4,
+    "titulo": "Junta tus tapas plasticas y crea un mural",
+    "descripcion": "Tambien puedes donarlas a alguien que las use para material de construcción"
+    },
+
+    {
+    "id": 5,
+    "titulo": "Reduce tu basura actual en un 80%",
+    "descripcion": "Vamos tu puedes :). El eco ladrillo puede ayudarte mucho tambien ;)"
     }
-
-
 ]

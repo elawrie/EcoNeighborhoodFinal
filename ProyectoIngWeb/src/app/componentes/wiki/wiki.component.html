@@ -2,7 +2,7 @@
 <div id="ArticuloDestacado">
     <div id="interaccion">
         <ul>
-            <li *ngFor="let articulo of articulos">
+            <li> <!-- Se muestra un artículo aleatorio del json object en wiki.compents.ts-->
                 <p> {{articulo.titulo}}</p>     
                 <p> {{articulo.recurso}}</p>
             </li>
@@ -13,7 +13,7 @@
 <div id="RecursoDelDia">
     <div id="interaccion">
         <ul>
-            <li *ngFor="let recurso of recursos">
+            <li>
                 <p> {{recurso.titulo}}</p>     
                 <p> {{recurso.recurso}}</p>
             </li>

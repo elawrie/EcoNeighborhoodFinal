@@ -7,13 +7,20 @@ import data2 from '../wiki/recursosDelDia.json';
   templateUrl: './wiki.component.html',
   styleUrls: ['./wiki.component.css']
 })
+
 export class WikiComponent {
   //Se insertan Objectos json de manera aleatoria//
   //Así se elige solo un contenido de la lista escrita en los .json //
-  articulos = data;
-  recursos = data2;
-  //articulos = data[Math.floor(Math.random() * data.length)];
-  //recursos = data2[Math.floor(Math.random() * data2.length)];
+  jsonArticulos = data;
+  jsonRecursos = data2;
+  articulo : any;
+  recurso : any;
+
+  constructor(){
+    const randIndex = Math.floor(Math.random() * this.jsonArticulos.length);
+    this.articulo = this.jsonArticulos[randIndex];
+    this.recurso = this.jsonRecursos[randIndex];
+  }
 }
 
 

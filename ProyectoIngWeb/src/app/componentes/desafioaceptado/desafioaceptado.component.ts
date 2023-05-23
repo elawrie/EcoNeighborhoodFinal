@@ -9,5 +9,13 @@ import data from '../desafioaceptado/desafios.json';
   styleUrls: ['./desafioaceptado.component.css']
 })
 export class DesafioaceptadoComponent {
-  desafios = data;
+  jsondesafios = data;
+  desafio: any;
+
+  constructor() {
+    const randIndex = Math.floor(Math.random() * this.jsondesafios.length);
+    this.desafio = this.jsondesafios[randIndex];
+  }
+
+
 }
