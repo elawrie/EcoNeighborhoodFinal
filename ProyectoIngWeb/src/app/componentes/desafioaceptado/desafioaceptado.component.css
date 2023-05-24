@@ -24,7 +24,10 @@ footer {
 }
 
 #desafio {
-  background-color: #e4e4d9;
+  /*background-color: #e4e4d9; */
+  background-color: blue;
+  background-image: url(../../../assets/logo.png);
+  background-size: contain;
   padding: 1em;
   padding-top: 3px;
   padding-left: 115px;

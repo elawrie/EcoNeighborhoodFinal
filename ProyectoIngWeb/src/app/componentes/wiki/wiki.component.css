@@ -25,8 +25,9 @@ a {
 
 #ArticuloDestacado {
   background-color: #e4e4d9;
+  background-image: url(../../../assets/logo.png);
+  background-size: contain;
   padding: 1em;
-  padding-left: 120px;
   width: 50%;
   height: 180px;
   box-sizing: border-box;
@@ -35,27 +36,65 @@ a {
   font-family: "Lato", sans-serif;
 }
 
+/*Ayuda en centrar el texto. */
+#ArticuloDestacado p {
+  transform: translate(-5%, +65%);
+}
+
+
 #RecursoDelDia {
-  background-color: #e4e4d9;
+  background-color: #e4e4d9; 
+  background-image: url(../../../assets/logo.png);
+  background-size: contain;
   padding: 1em;
-  padding-left: 120px;
   width: 50%;
   height: 180px;
   box-sizing: border-box;
   border-radius: 25%;
   text-align: center;
   font-family: "Lato", sans-serif;
+  position: relative;
+  overflow: auto;
+}
+
+/*Ayuda en centrar el texto. */
+#RecursoDelDia p {
+  /*position: absoulte;
+  top: 50%;
+  left: 50%;
+  transform: translate(-15%, -10%);*/
+  transform: translate(-5%, +65%);
+
 }
 
 #Portales {
   background-color: #e4e4d9;
+  background-image: url(../../../assets/logo.png);
+  background-size:contain;
   padding: 1em;
   padding-top: 3px;
-  padding-left: 120px;
   width: 50%;
   height: 200px;
   box-sizing: border-box;
   border-radius: 25%;
   text-align: center;
   font-family: "Lato", sans-serif;
+  position: relative;
+  overflow: auto;
+}
+
+/*Ayuda en centrar el texto. */
+#Portales li{
+  transform: translate(-5%, +65%);
+}
+
+
+#interaccion{
+  max-height: 150px; 
+  overflow: auto;
+  white-space: normal;
+}
+
+#interaccion p{
+  margin: 0;
 }

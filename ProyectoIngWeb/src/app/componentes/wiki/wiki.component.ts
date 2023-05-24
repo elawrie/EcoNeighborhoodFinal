@@ -17,9 +17,10 @@ export class WikiComponent {
   recurso : any;
 
   constructor(){
-    const randIndex = Math.floor(Math.random() * this.jsonArticulos.length);
-    this.articulo = this.jsonArticulos[randIndex];
-    this.recurso = this.jsonRecursos[randIndex];
+    const randIndexArticulo = Math.floor(Math.random() * this.jsonArticulos.length);
+    const randIndexRecurso = Math.floor(Math.random() * this.jsonRecursos.length);
+    this.articulo = this.jsonArticulos[randIndexArticulo];
+    this.recurso = this.jsonRecursos[randIndexRecurso];
   }
 }
 

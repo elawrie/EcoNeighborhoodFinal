@@ -2,15 +2,13 @@
     {
         "id": 1,
         "titulo": "Como cuidar mejor tus plantas",
-        "recurso": "Si tienes plantas, sabras que algunas son más dependientes de tí que otras. Esto puede depender de donce vives principalmente y si pudes dejar plantas afuera de tu hogar.\n Si hay poco sol algunas plantas se deprimen y mueren :c. Por eso infórmate si las plantas que te gustarían cuidar pueden vivir bien en el clima en donde vives. Al igual que los animales, a veces es bueno sacarlas a pasear y dejarlas afuera tomando el sol. Solo que no se mueven mucho" 
+        "recurso": "Si tienes plantas, sabras que algunas son más dependientes de tí que otras. Esto puede depender de donce vives principalmente y si pudes dejar plantas afuera de tu hogar. Si hay poco sol algunas plantas se deprimen y mueren :c. Por eso infórmate si las plantas que te gustarían cuidar pueden vivir bien en el clima en donde vives. Al igual que los animales, a veces es bueno sacarlas a pasear y dejarlas afuera tomando el sol. Solo que no se mueven mucho" 
     },
 
     {
         "id": 2,
         "titulo": "Tipos de fertilizantes",
         "recurso": "Existen varios tipos de fertilizante, dentro de los cuales es podemos mencionar..."
-
-
     },
 
     {
@@ -25,6 +23,4 @@
         "recurso": "Reducir tu huella de carbono puede hacer de muchas maneras. Una de estas por ejemplo sería...." 
 
     }
-
-
 ]
