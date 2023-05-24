@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import data from '../desafioaceptado/desafios.json';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-desafioaceptado',
   templateUrl: './desafioaceptado.component.html',
   styleUrls: ['./desafioaceptado.component.css']
 })
+
 export class DesafioaceptadoComponent {
-  jsondesafios = data;
+  //Del objeto json, solo se imprime un desafio aleatorio//
+  jsonDesafios : any;
   desafio: any;
 
-  constructor() {
-    const randIndex = Math.floor(Math.random() * this.jsondesafios.length);
-    this.desafio = this.jsondesafios[randIndex];
+  constructor(private httpClient: HttpClient) {
+    this.httpClient.get('assets/desafios.json').subscribe((res) =>{
+      this.jsonDesafios = res;
+      const randIndex = Math.floor(Math.random() * this.jsonDesafios.length);
+      this.desafio = this.jsonDesafios[randIndex];
+    })
   }
-
-
 }

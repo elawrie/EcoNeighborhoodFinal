@@ -24,13 +24,11 @@ footer {
 }
 
 #desafio {
-  /*background-color: #e4e4d9; */
-  background-color: blue;
+  background-color: #e4e4d9; 
   background-image: url(../../../assets/logo.png);
   background-size: contain;
   padding: 1em;
   padding-top: 3px;
-  padding-left: 115px;
   width: 50%;
   height: 180px;
   box-sizing: border-box;

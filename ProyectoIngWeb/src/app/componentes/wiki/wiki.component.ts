@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import data from '../wiki/articulos.json';
-import data2 from '../wiki/recursosDelDia.json';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-wiki',
@@ -11,17 +10,23 @@ import data2 from '../wiki/recursosDelDia.json';
 export class WikiComponent {
   //Se insertan Objectos json de manera aleatoria//
   //Así se elige solo un contenido de la lista escrita en los .json //
-  jsonArticulos = data;
-  jsonRecursos = data2;
+  jsonArticulos : any;
+  jsonRecursos : any;
   articulo : any;
   recurso : any;
 
-  constructor(){
-    const randIndexArticulo = Math.floor(Math.random() * this.jsonArticulos.length);
-    const randIndexRecurso = Math.floor(Math.random() * this.jsonRecursos.length);
-    this.articulo = this.jsonArticulos[randIndexArticulo];
-    this.recurso = this.jsonRecursos[randIndexRecurso];
+  constructor(private httpClient: HttpClient){
+    this.httpClient.get('assets/articulos.json').subscribe((res) =>{
+      this.jsonArticulos = res;
+      /*console.log(this.jsonArticulos); */
+      const randIndexArticulo= Math.floor(Math.random() * this.jsonArticulos.length);
+      this.articulo = this.jsonArticulos[randIndexArticulo];
+    })
+
+    this.httpClient.get('assets/recursosDelDia.json').subscribe((res) => {
+      this.jsonRecursos = res;
+      const randIndexRecurso = Math.floor(Math.random() * this.jsonRecursos.length);
+      this.recurso = this.jsonRecursos[randIndexRecurso]; 
+    })
   }
 }
-
-
