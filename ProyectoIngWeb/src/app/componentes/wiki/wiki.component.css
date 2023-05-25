@@ -95,6 +95,8 @@ a {
   white-space: normal;
 }
 
-#interaccion p{
+#interaccion p>span{
   margin: 0;
+  background-color: blue;
+  color: black;
 }

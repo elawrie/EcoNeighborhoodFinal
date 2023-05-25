@@ -3,8 +3,8 @@
     <div id="interaccion">
         <ul *ngIf="articulo">
             <li> <!-- Se muestra un artículo aleatorio del json object en wiki.compents.ts-->
-                <p> {{articulo.titulo}}</p>     
-                <p> {{articulo.recurso}}</p>
+                <p> <span>{{articulo.titulo}}</span></p>     
+                <p> <span>{{articulo.recurso}}</span></p>
             </li>
         </ul>
     </div>
@@ -14,8 +14,8 @@
     <div id="interaccion">
         <ul *ngIf="recurso">
             <li class="contenido">
-                <p> {{recurso.titulo}}</p>     
-                <p> {{recurso.recurso}}</p>
+                <p><span> {{recurso.titulo}}</span></p>     
+                <p><span> {{recurso.recurso}}</span></p>
             </li>
         </ul>
     </div>

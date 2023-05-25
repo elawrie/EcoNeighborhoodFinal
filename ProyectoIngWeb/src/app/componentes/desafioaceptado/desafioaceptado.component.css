@@ -36,3 +36,8 @@ footer {
   text-align: center;
   font-family: "Lato", sans-serif;
 }
+
+#interaccion p>span{
+  background-color: blue;
+  color: black;
+}
