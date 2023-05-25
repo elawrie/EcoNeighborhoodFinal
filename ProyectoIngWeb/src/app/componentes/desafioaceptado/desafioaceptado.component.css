@@ -37,6 +37,19 @@ footer {
   font-family: "Lato", sans-serif;
 }
 
+#interaccion{
+  max-height: 150px; 
+  overflow: scroll;
+  white-space: normal;
+  /*Firefox  scrollbar hiding */
+  scrollbar-width: thin;
+}
+
+/*Chrome based browsers scrollbar hiding */
+#interaccion::-webkit-scrollbar{
+  display: none;
+}
+
 #interaccion p>span{
   background-color: blue;
   color: black;
