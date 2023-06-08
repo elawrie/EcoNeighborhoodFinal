@@ -20,13 +20,19 @@ export class WikiComponent {
       this.jsonArticulos = res;
       /*console.log(this.jsonArticulos); */
       const randIndexArticulo= Math.floor(Math.random() * this.jsonArticulos.length);
-      this.articulo = this.jsonArticulos[randIndexArticulo];
-    })
+      this.articulo = {
+        titulo: this.jsonArticulos[randIndexArticulo].titulo.trim(),
+        recurso: this.jsonArticulos[randIndexArticulo].recurso.trim()
+      };
+    });
 
     this.httpClient.get('assets/recursosDelDia.json').subscribe((res) => {
       this.jsonRecursos = res;
       const randIndexRecurso = Math.floor(Math.random() * this.jsonRecursos.length);
-      this.recurso = this.jsonRecursos[randIndexRecurso]; 
-    })
-  }
+      this.recurso = {
+        titulo: this.jsonRecursos[randIndexRecurso].titulo.replace(/[\r\n]+/g, ''),
+        recurso: this.jsonRecursos[randIndexRecurso].recurso.replace(/[\r\n]+/g, '')
+      };
+    });
+  };
 }

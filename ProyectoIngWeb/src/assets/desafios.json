@@ -2,7 +2,7 @@
     {
     "id": 1,
     "titulo": "Crea un eco ladrillo",
-    "descripcion": "Con tus bolsas de plásticos que comes, crea un eco ladrillo"
+    "descripcion": "Con tus envoltorios plasticos que tengas, crea un eco ladrillo"
     },
 
     {
@@ -19,13 +19,13 @@
 
     {
     "id": 4,
-    "titulo": "Junta tus tapas plasticas y crea un mural",
+    "titulo": "Junta tus tapas plasticas y crea un posavasos",
     "descripcion": "Tambien puedes donarlas a alguien que las use para material de construcción"
     },
 
     {
     "id": 5,
     "titulo": "Reduce tu basura actual en un 80%",
-    "descripcion": "Vamos tu puedes :). El eco ladrillo puede ayudarte mucho tambien ;)"
+    "descripcion": "Vamos tu puedes!!. El eco ladrillo puede ayudarte mucho tambien ;)"
     }
 ]

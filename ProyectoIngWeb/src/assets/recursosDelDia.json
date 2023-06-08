@@ -1,39 +1,19 @@
 [
     {
         "id": 1,
-        "titulo": "Hola soy un recurso temporal",
-        "recurso": "Soy un Json sin contenido :c"
+        "titulo": "Our world in data",
+        "recurso": " Our world in data es un pág. web que posee datos e información de muchos problemas actuales en el mundo. Parte del contenido de la aplicación está revisado por esta fuente. Te invitamos a que la revises, seguramente te gustará."
     },
 
     {
         "id": 2,
-        "titulo": "Hola soy el segundo recurso temporal",
-        "recurso": "tampoco Tengo contenido :C"
-
-
+        "titulo": "Plastico en el oceano",
+        "recurso": "La cantidad aproximada de plástico que se filtra anualmente en el oceano es de 8 millones de toneladas."
     },
     
     {
         "id": 3,
-        "titulo": "Hola soy el tercer recurso temporal",
-        "recurso": "tampoco Tengo contenido :C"
-
-
-    },
-    
-    {
-        "id": 4,
-        "titulo": "Hola soy el cuarto recurso temporal",
-        "recurso": "tampoco Tengo contenido :C"
-
-
-    },
-
-    {
-        "id": 5,
-        "titulo": "Hola soy el quinto recurso temporal",
-        "recurso": "tampoco Tengo contenido :C"
-
-
+        "titulo": "Filtraciones de petroleo al medio ambiente",
+        "recurso": "Las filtraciones de petroleo al medio ambiente son sumamente destructivas para los ecosistemas, pero tambien generan daños para la sociedades y económicos. Lo bueno es que han disminuido en el tiempo. En el año 1975 ocurrieron 116 filtraciones en el mundo, en el 2022 solo 7."
     }
 ]
