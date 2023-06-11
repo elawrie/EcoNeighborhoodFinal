@@ -8,6 +8,6 @@
 - Evelyn Lawrie
 - Carlos Ruiz
 
-#Link overleaf explicando proyecto
+# Link overleaf explicando proyecto
 https://www.overleaf.com/read/ydkgrbvptmbs
 
