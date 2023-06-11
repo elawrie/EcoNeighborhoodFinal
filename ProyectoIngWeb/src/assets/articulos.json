@@ -2,25 +2,25 @@
     {
         "id": 1,
         "titulo": "Bacteria que come plastico",
-        "recurso": "La bacteria Ideonella sakaiensis es una bacteria que puede descomponer el  plástico, particularmente el de tipo PET. Tambien hay un gusano, te invitamos a investigar sobre este." 
+        "recurso": "\u00A0La bacteria Ideonella sakaiensis es una bacteria que puede descomponer el  plástico, particularmente el de tipo PET. Tambien hay un gusano, te invitamos a investigar sobre este." 
     },
 
     {
         "id": 2,
         "titulo": "Reciclaje de plasticos",
-        "recurso": "No todos los plásticos de pueden reciclar, en general de hecho son solo dos. El pete y el HDPE, cuyos números son el 1 y el 2. De los productos actules el resto no se puede reciclar, o bien no facilmente, ya que se requiere indumentaria especial para realizar el proceso.  Por ende te recomendamos que compres cosas plásticas con los números 1 y 2 principalmente."
+        "recurso": "\u00A0No todos los plásticos se pueden reciclar, en general de hecho son solo dos. El pete y el HDPE, cuyos números son el 1 y el 2. De los productos actules el resto no se puede reciclar, o bien no facilmente, ya que se requiere indumentaria especial para realizar el proceso.  Por ende te recomendamos que compres cosas plásticas con los números 1 y 2 principalmente."
     },
 
     {
         "id": 3,
         "titulo": "Cantidad de plástico creado en el mundo",
-        "recurso": "¿Sabías que la cantidad de plastico creada anualmente es más de 400 millones de toneladas ? La cifra del año 2019 es de 459 millones de toneladas, última en tenerse registro empírico."
+        "recurso": "\u00A0¿Sabías que la cantidad de plastico creada anualmente es más de 400 millones de toneladas ? La cifra del año 2019 es de 459 millones de toneladas, última en tenerse registro empírico."
     },
 
     {
         "id": 4,
         "titulo": "Usar compostera",
-        "recurso": " Usar una compostera es muy facil. En la actualidad son faciles de comprar, por lo que no es necesario invertir tiempo en construirlas. Las composteras más simples de mantener son las composteras tipo tombola. Esta compostera solo necesitas depositar tus residuos orgánicos, y junto a la tierra necesaria podras tener abono. Lo malo de esta compostera es que toma más tiempo tener buen abono. Otro tipo de composetera es la que utiliza gusanos. En esta puedes apilar varias composteras y los gusanos subiran a comerse tu desperdicios. Lo bueno de esta compostera es que en dos semanas o menos ya puedes tener un buen abono."
+        "recurso": "\u00A0Usar una compostera es muy fácil. En la actualidad son faciles de comprar, por lo que no es necesario invertir tiempo en construirlas. Las composteras más simples de mantener son las composteras tipo tombola. Esta compostera solo necesitas depositar tus residuos orgánicos, y junto a la tierra necesaria podras tener abono. Lo malo de esta compostera es que toma más tiempo tener buen abono. Otro tipo de composetera es la que utiliza gusanos. En esta puedes apilar varias composteras y los gusanos subiran a comerse tu desperdicios. Lo bueno de esta compostera es que en dos semanas o menos ya puedes tener un buen abono."
 
     }
 ]

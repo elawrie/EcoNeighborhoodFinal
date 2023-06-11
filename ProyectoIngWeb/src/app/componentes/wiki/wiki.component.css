@@ -34,11 +34,13 @@ a {
   border-radius: 25%;
   text-align: center;
   font-family: "Lato", sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
 /*Ayuda en centrar el texto. */
 #ArticuloDestacado p {
-  transform: translate(-5%, +65%);
+  /*transform: translate(-5%, +65%); */
 }
 
 
@@ -63,8 +65,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-15%, -10%);*/
-  transform: translate(-5%, +65%);
-
+  /*transform: translate(-5%, +65%); */
 }
 
 #Portales {
@@ -92,7 +93,7 @@ a {
 #interaccion{
   max-height: 150px; 
   overflow: scroll;
-  white-space: normal;
+  white-space: nowrap;
   /*Firefox  scrollbar hiding */
   scrollbar-width: thin;
 }
@@ -100,13 +101,16 @@ a {
 /*Chrome based browsers scrollbar hiding */
 #interaccion::-webkit-scrollbar{
   display: none;
-
 }
 
 #interaccion p>span{
   margin: 0;
   background-color: #fffdd0;
   color: black;
+  overflow:hidden;
+  white-space: normal;
+  text-align: center;
+  text-overflow: ellipsis;
 }
 
 p{

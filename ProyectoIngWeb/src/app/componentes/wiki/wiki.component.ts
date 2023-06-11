@@ -21,8 +21,8 @@ export class WikiComponent {
       /*console.log(this.jsonArticulos); */
       const randIndexArticulo= Math.floor(Math.random() * this.jsonArticulos.length);
       this.articulo = {
-        titulo: this.jsonArticulos[randIndexArticulo].titulo.trim(),
-        recurso: this.jsonArticulos[randIndexArticulo].recurso.trim()
+        titulo: this.jsonArticulos[randIndexArticulo].titulo.replace(/[\r\n]+/g, ''),
+        recurso: this.jsonArticulos[randIndexArticulo].recurso.replace(/[\r\n]+/g, '')
       };
     });
 
