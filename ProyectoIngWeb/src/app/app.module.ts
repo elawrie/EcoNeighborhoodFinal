@@ -18,6 +18,12 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { DesafioaceptadoComponent } from './componentes/desafioaceptado/desafioaceptado.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FullCalendarModule } from '@fullcalendar/angular';
+<<<<<<< Updated upstream
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { Calendar } from '@fullcalendar/core';
+=======
+>>>>>>> Stashed changes
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -49,14 +55,15 @@ const routes: Routes = [
     DesafiosComponent,
     WikiComponent,
     PerfilComponent,
-    DesafioaceptadoComponent
+    DesafioaceptadoComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FullCalendarModule
   ],
   exports: [RouterModule],
   providers: [],
