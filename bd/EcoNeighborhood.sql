@@ -8,61 +8,61 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema EcoNeighborhood
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema EcoNeighborhood
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `EcoNeighborhood` DEFAULT CHARACTER SET utf8 ;
+USE `EcoNeighborhood` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuario`
+-- Table `EcoNeighborhood`.`Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
+CREATE TABLE IF NOT EXISTS `EcoNeighborhood`.`Usuario` (
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(32) NOT NULL,
   `puntos` INT NOT NULL,
   PRIMARY KEY (`email`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Desafios`
+-- Table `EcoNeighborhood`.`Desafios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Desafios` (
+CREATE TABLE IF NOT EXISTS `EcoNeighborhood`.`Desafios` (
   `id` VARCHAR(16) NOT NULL,
   `Contenido` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`));
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Acepta`
+-- Table `EcoNeighborhood`.`Acepta`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Acepta` (
+CREATE TABLE IF NOT EXISTS `EcoNeighborhood`.`Acepta` (
   `Usuario_email` VARCHAR(255) NOT NULL,
   `Desafios_id` VARCHAR(16) NOT NULL,
   `Status` INT NOT NULL,
   PRIMARY KEY (`Usuario_email`, `Desafios_id`),
-  INDEX `fk_Usuario_has_Desafios_Desafios1_idx` (`Desafios_id` ASC) VISIBLE,
-  INDEX `fk_Usuario_has_Desafios_Usuario_idx` (`Usuario_email` ASC) VISIBLE,
+  INDEX `fk_Usuario_has_Desafios_Desafios1_idx` (`Desafios_id` ASC),
+  INDEX `fk_Usuario_has_Desafios_Usuario_idx` (`Usuario_email` ASC),
   CONSTRAINT `fk_Usuario_has_Desafios_Usuario`
     FOREIGN KEY (`Usuario_email`)
-    REFERENCES `mydb`.`Usuario` (`email`)
+    REFERENCES `EcoNeighborhood`.`Usuario` (`email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Usuario_has_Desafios_Desafios1`
     FOREIGN KEY (`Desafios_id`)
-    REFERENCES `mydb`.`Desafios` (`id`)
+    REFERENCES `EcoNeighborhood`.`Desafios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Formulario`
+-- Table `EcoNeighborhood`.`Formulario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Formulario` (
+CREATE TABLE IF NOT EXISTS `EcoNeighborhood`.`Formulario` (
   `Usuario_email` VARCHAR(255) NOT NULL,
   `gusto1` VARCHAR(255) NOT NULL,
   `gusto2` VARCHAR(45) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Formulario` (
   PRIMARY KEY (`Usuario_email`),
   CONSTRAINT `fk_Formulario_Usuario1`
     FOREIGN KEY (`Usuario_email`)
-    REFERENCES `mydb`.`Usuario` (`email`)
+    REFERENCES `EcoNeighborhood`.`Usuario` (`email`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
