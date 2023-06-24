@@ -29,13 +29,44 @@ var configuracion = {
     hostname: "127.0.0.1",
     port: 3000,
 };
-// REMEMBER TO PUT THE SLASH IN FRONT OF REGISTRO
+// metodo PUT 
 app.put("/registro", jsonParser, function (req, res) {
     var email = req.body.email;
-    // LLAMAR LA FUNCION ENCRIPTAR ACA PARA ENCRYPTAR EL PASSWORD 
+    // llamar a la funcion encriptar para encriptar la contrasena 
     var password = (0, encriptacion_1.encriptar)(req.body.password);
     var puntos = req.body.puntos;
     connection.query("INSERT INTO Usuario (email,password,puntos) VALUES (?,?,?)", [email, password, puntos], function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+    });
+});
+// metodo POST 
+app.post("/registro", jsonParser, function (req, res) {
+    var email = req.body.email;
+    var password = (0, encriptacion_1.encriptar)(req.body.password);
+    var puntos = req.body.puntos;
+    connection.query("INSERT INTO Usuario (email,password,puntos) VALUES (?,?,?)", [email, password, puntos], function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+    });
+});
+// metodo GET 
+app.get("/registro", jsonParser, function (req, res) {
+    var email = req.body.email;
+    // mostrar los datos de un usuario segun un correo en particular 
+    connection.query("SELECT * FROM Usuario WHERE email=?", [email], function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+    });
+});
+// metodo DELETE
+app.delete("/registro", jsonParser, function (req, res) {
+    var email = req.body.email;
+    // borrar los datos de un usuario segun un correo en particular 
+    connection.query("DELETE FROM Usuario WHERE email=?", [email], function (error, results, fields) {
         if (error)
             throw error;
         res.send(JSON.stringify({ "mensaje": true, "resultado": results }));

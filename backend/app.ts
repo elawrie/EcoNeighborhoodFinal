@@ -33,14 +33,46 @@ const configuracion={
     port: 3000,
 }
 
-// REMEMBER TO PUT THE SLASH IN FRONT OF REGISTRO
+// metodo PUT 
 app.put("/registro",jsonParser,(req:any, res:any) => {
     let email=req.body.email;
-    // LLAMAR LA FUNCION ENCRIPTAR ACA PARA ENCRYPTAR EL PASSWORD 
+    // llamar a la funcion encriptar para encriptar la contrasena 
     let password=encriptar(req.body.password);
     let puntos=req.body.puntos;
 
     connection.query("INSERT INTO Usuario (email,password,puntos) VALUES (?,?,?)",[email,password,puntos],function(error:any,results:any,fields:any){
+        if (error) throw error;
+        res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+    });
+  });
+
+  // metodo POST 
+  app.post("/registro",jsonParser,(req:any, res:any) => {
+    let email=req.body.email;
+    let password=encriptar(req.body.password);
+    let puntos=req.body.puntos;
+
+    connection.query("INSERT INTO Usuario (email,password,puntos) VALUES (?,?,?)",[email,password,puntos],function(error:any,results:any,fields:any){
+        if (error) throw error;
+        res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+    });
+  });
+
+  // metodo GET 
+  app.get("/registro",jsonParser,(req:any, res:any) => {
+    let email=req.body.email;
+    // mostrar los datos de un usuario segun un correo en particular 
+    connection.query("SELECT * FROM Usuario WHERE email=?", [email], function (error:any,results:any,fields:any){
+        if (error) throw error;
+        res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+    });
+  });
+
+  // metodo DELETE
+  app.delete("/registro",jsonParser,(req:any, res:any) => {
+    let email=req.body.email;
+    // borrar los datos de un usuario segun un correo en particular 
+    connection.query("DELETE FROM Usuario WHERE email=?", [email], function (error:any,results:any,fields:any){
         if (error) throw error;
         res.send(JSON.stringify({"mensaje":true,"resultado":results}));
     });
