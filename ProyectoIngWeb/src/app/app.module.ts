@@ -19,11 +19,8 @@ import { DesafioaceptadoComponent } from './componentes/desafioaceptado/desafioa
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FullCalendarModule } from '@fullcalendar/angular';
-<<<<<<< Updated upstream
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { Calendar } from '@fullcalendar/core';
-=======
->>>>>>> Stashed changes
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
