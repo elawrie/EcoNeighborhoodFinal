@@ -6,6 +6,7 @@ const mysql=require("mysql");
 const app=express();
 //cors
 const cors=require('cors');
+const axios=require('axios'); //Necesario para Recaptcha
 const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
 
@@ -82,3 +83,32 @@ app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`)
 })
 
+//Se define método post para api google recaptcha//
+app.post('/login', (req:any, res:any) => {
+  const { token } = req.body;
+
+  //Se conecta api de google con llave//
+  axios
+    .post('https://www.google.com/recaptcha/api/siteverify', null, {
+      params: {
+        secret: '6LfBHskmAAAAAG8UXTKF3TAfqY5QyvjGsMp-jGU9',
+        response: token,
+      },
+    })
+    //Se comprueba si el captcha fue éxitoso//
+    .then((response:any) => {
+      const { success } = response.data;
+      if (success) {
+        //Verificación exitiosa//
+        res.json({ success: true, message: 'reCAPTCHA verification successful' });
+      } else {
+        //Verificación fallida//
+        res.json({ success: false, message: 'reCAPTCHA verification failed' });
+      }
+    })
+    //Mensajes de error por parte del servicio de google//
+    .catch((error:any) => {
+      console.error('Error occurred during reCAPTCHA verification:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+    });
+});

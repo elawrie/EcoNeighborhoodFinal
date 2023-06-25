@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Form, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { ReCaptchaV3Service } from 'ngx-captcha';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-iniciarsesion',
@@ -25,6 +27,30 @@ export class IniciarsesionComponent {
   get password() {
     return this.loginForm.get('password')
   }
+
+  //Configuración recaptcha//
+  recaptchaSiteKey = '6LfBHskmAAAAAKIHAFfSwlKI7tzLMS2BkIMfeTmK';
+  constructor(private http: HttpClient, private recaptchaV3Service: ReCaptchaV3Service) {}
+
+  verifyUser() {
+    this.recaptchaV3Service.execute(this.recaptchaSiteKey, '/login', (token:string) => {
+        // Use the token to verify the user
+        console.log('reCAPTCHA token:', token);
+
+        // Send the token to the backend
+        const data = { token: token };
+        this.http.post('/login', data).subscribe(
+          (response:any) => {
+            console.log('Verification response:', response);
+            // Handle the response from the backend
+          },
+          (error:any) => {
+            console.error('Error occurred during verification:', error);
+            // Handle the error
+          }
+        );
+      });
+    };
 
   ngOnInit(): void {}
 }
