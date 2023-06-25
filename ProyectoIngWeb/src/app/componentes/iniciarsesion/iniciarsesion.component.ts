@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {Form, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { ReCaptchaV3Service } from 'ngx-captcha';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -10,10 +9,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class IniciarsesionComponent {
   title = 'Angular Reactive Form';
-  loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$')]),
-  })
+  loginForm: FormGroup;
+  recaptchaSiteKey = '6LfBHskmAAAAAKIHAFfSwlKI7tzLMS2BkIMfeTmK';
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$')]],
+      captcha: ['', Validators.required]
+    });
+  }
 
   loginUser() {
     console.warn(this.loginForm.value);
@@ -21,36 +26,40 @@ export class IniciarsesionComponent {
   }
 
   get email() {
-    return this.loginForm.get('email')
+    return this.loginForm.get('email');
   }
 
   get password() {
-    return this.loginForm.get('password')
+    return this.loginForm.get('password');
   }
 
-  //Configuración recaptcha//
-  recaptchaSiteKey = '6LfBHskmAAAAAKIHAFfSwlKI7tzLMS2BkIMfeTmK';
-  constructor(private http: HttpClient, private recaptchaV3Service: ReCaptchaV3Service) {}
+  //Codigo de captcha antiguo//
+  /*
+  verifyUser(response: string) {
+    console.log('reCAPTCHA response:', response);
 
-  verifyUser() {
-    this.recaptchaV3Service.execute(this.recaptchaSiteKey, '/login', (token:string) => {
-        // Use the token to verify the user
-        console.log('reCAPTCHA token:', token);
+    // Send the response to the backend for verification
+    const data = { response };
+    this.http.post('/login', data).subscribe(
+      (response: any) => {
+        console.log('Verification response:', response);
+        // Handle the response from the backend
+      },
+      (error: any) => {
+        console.error('Error occurred during verification:', error);
+        // Handle the error
+      }
+    );
+  }
 
-        // Send the token to the backend
-        const data = { token: token };
-        this.http.post('/login', data).subscribe(
-          (response:any) => {
-            console.log('Verification response:', response);
-            // Handle the response from the backend
-          },
-          (error:any) => {
-            console.error('Error occurred during verification:', error);
-            // Handle the error
-          }
-        );
-      });
-    };
+  onCaptchaResolved(response: string): void {
+    this.loginForm.patchValue({
+      captcha: response
+    });
+  }
+  */
 
-  ngOnInit(): void {}
+  public resolved(captchaResponse: string) { 
+    console.log(`Resolved captcha with response: ${captchaResponse}`); 
+    }
 }

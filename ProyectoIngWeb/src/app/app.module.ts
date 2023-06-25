@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { Calendar } from '@fullcalendar/core';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -60,7 +61,8 @@ const routes: Routes = [
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FullCalendarModule
+    FullCalendarModule,
+    RecaptchaModule,
   ],
   exports: [RouterModule],
   providers: [],
