@@ -85,6 +85,24 @@ app.delete("/registro", jsonParser, function (req, res) {
 app.listen(configuracion, function () {
     console.log("Conectando al servidor http://localhost:".concat(configuracion.port));
 });
+//Metodo para mostrar información de calendario por usuario//
+app.get("/calendario", jsonParser, function (req, res) {
+    var email = req.query.email;
+    console.log(email);
+    // mostrar los datos de un usuario segun un correo en particular 
+    connection.query("SELECT * FROM Usuario WHERE email LIKE ?", [email], function (error, results, fields) {
+        if (error)
+            throw error;
+        if (results.length > 0) {
+            // correo existe en la BD
+            res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+        }
+        else {
+            // correo no existe en la BD 
+            res.send(JSON.stringify({ "mensaje": false }));
+        }
+    });
+});
 //Se define método post para api google recaptcha//
 app.post('/login', function (req, res) {
     var token = req.body.token;

@@ -77,6 +77,7 @@ app.put("/registro",jsonParser,(req:any, res:any) => {
     });
   });
 
+
   // metodo DELETE
   app.delete("/registro",jsonParser,(req:any, res:any) => {
     let email=req.body.email;
@@ -90,7 +91,6 @@ app.put("/registro",jsonParser,(req:any, res:any) => {
 app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`)
 })
-
 
 //Metodo para mostrar información de calendario por usuario//
 app.get("/calendario",jsonParser,(req:any, res:any) => {

@@ -63,6 +63,39 @@ export class IniciarsesionComponent {
     
   }
 
+  // FIXME: EL CODIGO DE ACCEDER LOS PUNTOS NO FUNCIONA
+//   async fetchData(): Promise<number> {
+//     const apiUrl = 'http://localhost:3000';
+//     const url = `${apiUrl}/registro?email=${encodeURIComponent(email)}`
+//     const response = await fetch(url); 
+  
+//     if (!response.ok) {
+//       throw new Error('Failed to fetch data');
+//     }
+  
+//     const data = await response.json();
+//     const result = data.puntos; 
+//     const resultNum = parseInt(result, 10);
+//     return resultNum;
+//   }
+
+//   async fetchData().then(result => {
+//     console.log(result); // Use the retrieved value as needed
+//   })
+//   .catch(error => {
+//     console.error(error); // Handle any potential errors
+//   });
+
+//   const email: any = this.loginForm.get('email')?.value;
+//   const password: any = this.loginForm.get('password')?.value;
+//   let puntos: Promise<number> = fetchData();
+
+//   this.signInService.signInData = {
+//     email: email,
+//     password: password,
+//     puntos: puntos
+//   };
+
   showSnackBar(message: string) {
     this.snackBar.open(message, 'Close', {
       duration: 3000, // Duration in milliseconds
