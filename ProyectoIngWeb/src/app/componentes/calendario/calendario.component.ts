@@ -32,8 +32,9 @@ export class CalendarioComponent implements OnInit{
   constructor(private http: HttpClient, private signInService: SignInService) {};
 
   ngOnInit(): void {
-    //const email: any = this.signInService.signInData.email;
-    const email: any = 'hola@hola.com'
+    const email: any = this.signInService.signInData.email;
+    console.log("email: " + email);
+    //const email: any = 'hola@hola.com'
     this.fetchEvents(email);//Se llama función para extraer datos de usuario//
   }
 
