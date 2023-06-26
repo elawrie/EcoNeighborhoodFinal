@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SignInService } from '../../sign-in-service.service';
 
 interface ApiResponse {
   mensaje: boolean;
@@ -18,7 +19,7 @@ export class IniciarsesionComponent {
   loginForm: FormGroup;
   recaptchaSiteKey = '6LfBHskmAAAAAKIHAFfSwlKI7tzLMS2BkIMfeTmK';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar, private signInService: SignInService) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$')]),
@@ -32,6 +33,10 @@ export class IniciarsesionComponent {
     const email: any = this.loginForm.get('email')?.value;
     const password: any = this.loginForm.get('password')?.value;
     const url = `${this.apiUrl}/registro?email=${encodeURIComponent(email)}`; 
+    this.signInService.signInData = {
+      email: email,
+      password: password
+    };
 
     const data = {
       "email": email, 

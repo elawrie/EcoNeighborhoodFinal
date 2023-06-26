@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Form, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { SignInService } from '../../sign-in-service.service';
 
 
 @Component({
@@ -19,13 +20,18 @@ export class CrearcuentaComponent implements OnInit {
 
   private apiUrl = 'http://localhost:3000';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private signInService: SignInService) {}
 
   public updateData(): void {
     const email: any = this.loginForm.get('email')?.value;
     const password: any = this.loginForm.get('password')?.value;
     const puntos: number = 0;
     const url = `${this.apiUrl}/registro`; 
+
+    this.signInService.signInData = {
+      email: email,
+      password: password
+    };
 
     const data = {
       "email": email, 

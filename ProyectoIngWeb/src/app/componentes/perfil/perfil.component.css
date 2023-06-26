@@ -1,7 +1,3 @@
-ul {
-    list-style: none;
-  }
-  
 body {
   background-color: #6ec1a2;
 }
@@ -11,15 +7,10 @@ a {
   text-decoration: none;
 }
 
-#salidaTexto {
-  background-color: #e4e4d9;
-  padding: 5.9em;
-  padding-top: 3px;
-  padding-left: 160px;
-  width: 70%;
-  height: 230px;
-  box-sizing: border-box;
-  border-radius: 25%;
+h3 {
   text-align: center;
-  font-family: "Lato", sans-serif;
+}
+
+div {
+  text-align: center;
 }
