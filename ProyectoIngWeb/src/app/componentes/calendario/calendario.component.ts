@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { HttpClient, HttpParams } from '@angular/common/http'; 
+import { SignInService } from '../../sign-in-service.service';
 
 @Component({
   selector: 'app-calendario',
@@ -28,10 +29,11 @@ export class CalendarioComponent implements OnInit{
     },
   };
 
-  constructor(private http: HttpClient) {};
+  constructor(private http: HttpClient, private signInService: SignInService) {};
 
   ngOnInit(): void {
-    const email = 'hola@hola.com';
+    //const email: any = this.signInService.signInData.email;
+    const email: any = 'hola@hola.com'
     this.fetchEvents(email);//Se llama función para extraer datos de usuario//
   }
 
@@ -41,8 +43,8 @@ export class CalendarioComponent implements OnInit{
     const url = 'http://localhost:3000/calendario';
     this.http.get<any>(url, { params }).subscribe(
       (response) => {
+        console.log("Se extraen exitosamente info de usuario a calendario: ", response);
         const events = this.formatEvents(response);
-        console.log("Se extraen exitosamente info de usuario a calendario: ", events);
         this.calendarOptions.events = events;
       },
       (error) => {
@@ -56,11 +58,16 @@ export class CalendarioComponent implements OnInit{
   
     if (Array.isArray(resultado)) {
       return resultado.map((item) => {
+        const fechaInicio = new Date('2023-06-26');
+        const fechaTermino = new Date(fechaInicio);
+        fechaTermino.setDate(fechaTermino.getDate() + 3);
         return {
-          title: item.email,
-          start: '2023-06-26',
-          end: '2023-06-30',
-          email: item.email,
+          title: item.Contenido,
+          start: fechaInicio.toISOString(),
+          end: fechaTermino.toISOString(),
+          //start: '2023-06-26',
+          //end: '2023-06-29',
+          contenido: item.Contenido,
         };
       });
     } else {
