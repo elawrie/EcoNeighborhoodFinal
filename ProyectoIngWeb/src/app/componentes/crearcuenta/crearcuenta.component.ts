@@ -25,12 +25,13 @@ export class CrearcuentaComponent implements OnInit {
   public updateData(): void {
     const email: any = this.loginForm.get('email')?.value;
     const password: any = this.loginForm.get('password')?.value;
-    const puntos: number = 0;
+    const puntos: number = 2;
     const url = `${this.apiUrl}/registro`; 
 
     this.signInService.signInData = {
       email: email,
-      password: password
+      password: password,
+      puntos: puntos
     };
 
     const data = {

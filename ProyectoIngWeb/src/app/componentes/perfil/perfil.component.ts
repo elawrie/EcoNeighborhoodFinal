@@ -48,6 +48,11 @@ export class PerfilComponent {
     
   }
 
+  public puntos(): void{
+    const puntos: any = this.signInService.signInData.puntos;
+    this.showSnackBar(puntos);
+  }
+
   showSnackBar(message: string) {
     this.snackBar.open(message, 'Close', {
       duration: 3000, // Duration in milliseconds
