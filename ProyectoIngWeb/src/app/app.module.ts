@@ -22,6 +22,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { Calendar } from '@fullcalendar/core';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
@@ -63,6 +65,8 @@ const routes: Routes = [
     HttpClientModule,
     FullCalendarModule,
     RecaptchaModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
   ],
   exports: [RouterModule],
   providers: [],

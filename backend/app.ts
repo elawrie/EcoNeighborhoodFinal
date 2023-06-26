@@ -61,11 +61,19 @@ app.put("/registro",jsonParser,(req:any, res:any) => {
 
   // metodo GET 
   app.get("/registro",jsonParser,(req:any, res:any) => {
-    let email=req.body.email;
+    let email=req.query.email;
+    console.log(email);
     // mostrar los datos de un usuario segun un correo en particular 
-    connection.query("SELECT * FROM Usuario WHERE email=?", [email], function (error:any,results:any,fields:any){
+    connection.query("SELECT * FROM Usuario WHERE email LIKE ?", [email], function (error:any,results:any,fields:any){
         if (error) throw error;
-        res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+        if (results.length > 0) {
+          // correo existe en la BD
+          res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+        } else {
+          // correo no existe en la BD 
+          res.send(JSON.stringify({ "mensaje": false }));
+        }
+        // res.send(JSON.stringify({"mensaje":true,"resultado":results}));
     });
   });
 
@@ -73,7 +81,7 @@ app.put("/registro",jsonParser,(req:any, res:any) => {
   app.delete("/registro",jsonParser,(req:any, res:any) => {
     let email=req.body.email;
     // borrar los datos de un usuario segun un correo en particular 
-    connection.query("DELETE FROM Usuario WHERE email=?", [email], function (error:any,results:any,fields:any){
+    connection.query("DELETE FROM Usuario WHERE email LIKE ?", [email], function (error:any,results:any,fields:any){
         if (error) throw error;
         res.send(JSON.stringify({"mensaje":true,"resultado":results}));
     });

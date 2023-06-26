@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
+interface ApiResponse {
+  mensaje: boolean;
+  resultado: any; 
+}
 
 @Component({
   selector: 'app-iniciarsesion',
@@ -13,39 +18,59 @@ export class IniciarsesionComponent {
   loginForm: FormGroup;
   recaptchaSiteKey = '6LfBHskmAAAAAKIHAFfSwlKI7tzLMS2BkIMfeTmK';
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$')]],
-      captcha: ['', Validators.required]
+  constructor(private fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$')]),
+      captcha: new FormControl(['', Validators.required])
+    })
+  }
+
+  private apiUrl = 'http://localhost:3000';
+
+  public enviarDatos(): void {
+    const email: any = this.loginForm.get('email')?.value;
+    const password: any = this.loginForm.get('password')?.value;
+    const url = `${this.apiUrl}/registro?email=${encodeURIComponent(email)}`; 
+
+    const data = {
+      "email": email, 
+      "password": password, 
+    };
+
+    this.http.get<ApiResponse>(url, { params: email }).subscribe(
+        response => {
+          console.log('GET request successful:', response);
+          if (response.mensaje === true) {
+            console.log("usuario es registrado");
+            this.showSnackBar('Usuario ha ingresado sesión');
+          }
+          else {
+            console.log("usuario no tiene cuenta");
+            this.resetForm(); 
+            this.showSnackBar('Usuario no es registrado');
+          }
+        },
+        error => {
+          console.error('An error occurred:', error);
+        }
+      );
+    
+  }
+
+  showSnackBar(message: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000, // Duration in milliseconds
     });
   }
 
-  // private apiUrl = 'http://localhost:3000';
-
-  // public enviarDatos(): void {
-  //   const email: any = this.loginForm.get('email')?.value;
-  //   const password: any = this.loginForm.get('password')?.value;
-  //   const url = `${this.apiUrl}/registro`; 
-
-  //   const data = {
-  //     "email": email, 
-  //     "password": password, 
-  //   };
-
-  //   this.http.get<any>(url, data)
-  //     .subscribe(
-  //       response => {
-  //         console.log('GET request successful:', response);
-  //       },
-  //       error => {
-  //         console.error('An error occurred:', error);
-  //       }
-  //     );
-  // }
-
   loginUser() {
     console.warn(this.loginForm.value);
+    this.loginForm.reset();
+  }
+
+  // Reset the form
+  resetForm() {
     this.loginForm.reset();
   }
 
