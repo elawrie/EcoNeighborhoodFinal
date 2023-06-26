@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-iniciarsesion',
   templateUrl: './iniciarsesion.component.html',
@@ -19,6 +20,29 @@ export class IniciarsesionComponent {
       captcha: ['', Validators.required]
     });
   }
+
+  // private apiUrl = 'http://localhost:3000';
+
+  // public enviarDatos(): void {
+  //   const email: any = this.loginForm.get('email')?.value;
+  //   const password: any = this.loginForm.get('password')?.value;
+  //   const url = `${this.apiUrl}/registro`; 
+
+  //   const data = {
+  //     "email": email, 
+  //     "password": password, 
+  //   };
+
+  //   this.http.get<any>(url, data)
+  //     .subscribe(
+  //       response => {
+  //         console.log('GET request successful:', response);
+  //       },
+  //       error => {
+  //         console.error('An error occurred:', error);
+  //       }
+  //     );
+  // }
 
   loginUser() {
     console.warn(this.loginForm.value);

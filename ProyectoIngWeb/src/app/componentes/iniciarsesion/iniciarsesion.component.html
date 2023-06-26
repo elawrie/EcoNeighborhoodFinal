@@ -19,8 +19,14 @@
                     <br>
                 </li>
                 <li>
+                    <div>
+                        <re-captcha id="captcha" (resolved)="resolved($event)" siteKey="6LfBHskmAAAAAKIHAFfSwlKI7tzLMS2BkIMfeTmK" ></re-captcha>
+                        <br>
+                    </div>
+                </li>
+                <li>
                     <div class="col-md-12">
-                        <button type="submit" [disabled]="loginForm.invalid">Crear cuenta</button>
+                        <button type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
                     </div>
                     <br>
                 </li>
@@ -34,7 +40,7 @@
                 </li>
             </ul>
         </form>
-        <re-captcha (resolved)="resolved($event)" siteKey="6LfBHskmAAAAAKIHAFfSwlKI7tzLMS2BkIMfeTmK" ></re-captcha>
+        
 
     </section>
 </div>
