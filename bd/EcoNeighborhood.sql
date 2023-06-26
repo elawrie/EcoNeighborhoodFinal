@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `EcoNeighborhood`.`Usuario` (
 CREATE TABLE IF NOT EXISTS `EcoNeighborhood`.`Desafios` (
   `id` VARCHAR(16) NOT NULL,
   `Contenido` VARCHAR(255) NOT NULL,
+  `descripcion` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`));
 
 
@@ -44,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `EcoNeighborhood`.`Acepta` (
   `Usuario_email` VARCHAR(255) NOT NULL,
   `Desafios_id` VARCHAR(16) NOT NULL,
   `Status` INT NOT NULL,
+  `Fecha_inicio` VARCHAR(45)  NULL,
   PRIMARY KEY (`Usuario_email`, `Desafios_id`),
   INDEX `fk_Usuario_has_Desafios_Desafios1_idx` (`Desafios_id` ASC),
   INDEX `fk_Usuario_has_Desafios_Usuario_idx` (`Usuario_email` ASC),

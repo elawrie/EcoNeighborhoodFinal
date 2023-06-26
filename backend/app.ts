@@ -15,7 +15,7 @@ app.use(cors());
 const connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '',
+    password : 'Hola1234',
     port:  3306,
     database : 'EcoNeighborhood'
   });
@@ -97,7 +97,8 @@ app.get("/calendario",jsonParser,(req:any, res:any) => {
   let email=req.query.email;
   console.log(email);
   // mostrar los datos de un usuario segun un correo en particular 
-  connection.query("SELECT d.* FROM `EcoNeighborhood`.`Desafios` AS d INNER JOIN `EcoNeighborhood`.`Acepta` AS a ON d.`id` = a.`Desafios_id` INNER JOIN `EcoNeighborhood`.`Usuario` AS u  ON a.`Usuario_email` = u.`email` WHERE u.`email` LIKE ?", [email], function (error:any,results:any,fields:any){
+  connection.query("SELECT d.*, u.descripcion FROM `EcoNeighborhood`.`Desafios` AS d INNER JOIN `EcoNeighborhood`.`Acepta` AS a ON d.`id` = a.`Desafios_id` INNER JOIN `EcoNeighborhood`.`Usuario` AS u ON a.`Usuario_email` = u.`email` WHERE u.`email` LIKE ?",
+  [email], function (error:any,results:any,fields:any){
       if (error) throw error;
       if (results.length > 0) {
         // correo existe en la BD
