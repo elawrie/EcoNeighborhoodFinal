@@ -81,6 +81,24 @@ app.put("/registro",jsonParser,(req:any, res:any) => {
     });
   });
 
+  app.get("/ranking",jsonParser,(req:any, res:any) => {
+    connection.query("SELECT email,puntos FROM Usuario ORDER BY puntos DESC", function (error:any,results:any,fields:any){
+      if (error) throw error;
+      if (results.length > 0) {
+        // correo existe en la BD
+        console.log("results:");
+        console.log(results);
+        // console.log("points:");
+        // console.log(results);
+        res.send(JSON.stringify({ "mensaje": true, "resultado": results}));
+      } else {
+        // correo no existe en la BD 
+        res.send(JSON.stringify({ "mensaje": false }));
+      }
+      // res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+  });
+  })
+
 
   // metodo DELETE
   app.delete("/registro",jsonParser,(req:any, res:any) => {

@@ -76,6 +76,25 @@ app.get("/registro", jsonParser, function (req, res) {
         // res.send(JSON.stringify({"mensaje":true,"resultado":results}));
     });
 });
+app.get("/ranking", jsonParser, function (req, res) {
+    connection.query("SELECT email,puntos FROM Usuario ORDER BY puntos DESC", function (error, results, fields) {
+        if (error)
+            throw error;
+        if (results.length > 0) {
+            // correo existe en la BD
+            console.log("results:");
+            console.log(results);
+            // console.log("points:");
+            // console.log(results);
+            res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+        }
+        else {
+            // correo no existe en la BD 
+            res.send(JSON.stringify({ "mensaje": false }));
+        }
+        // res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+    });
+});
 // metodo DELETE
 app.delete("/registro", jsonParser, function (req, res) {
     var email = req.body.email;
@@ -94,7 +113,7 @@ app.get("/calendario", jsonParser, function (req, res) {
     var email = req.query.email;
     console.log(email);
     // mostrar los datos de un usuario segun un correo en particular 
-    connection.query("SELECT d.* FROM `EcoNeighborhood`.`Desafios` AS d INNER JOIN `EcoNeighborhood`.`Acepta` AS a ON d.`id` = a.`Desafios_id` INNER JOIN `EcoNeighborhood`.`Usuario` AS u  ON a.`Usuario_email` = u.`email` WHERE u.`email` LIKE ?", [email], function (error, results, fields) {
+    connection.query("SELECT d.*, u.descripcion FROM `EcoNeighborhood`.`Desafios` AS d INNER JOIN `EcoNeighborhood`.`Acepta` AS a ON d.`id` = a.`Desafios_id` INNER JOIN `EcoNeighborhood`.`Usuario` AS u ON a.`Usuario_email` = u.`email` WHERE u.`email` LIKE ?", [email], function (error, results, fields) {
         if (error)
             throw error;
         if (results.length > 0) {
