@@ -14,7 +14,7 @@ app.use(cors());
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'Hola1234',
     port: 3306,
     database: 'EcoNeighborhood'
 });
@@ -90,7 +90,7 @@ app.get("/calendario", jsonParser, function (req, res) {
     var email = req.query.email;
     console.log(email);
     // mostrar los datos de un usuario segun un correo en particular 
-    connection.query("SELECT * FROM Usuario WHERE email LIKE ?", [email], function (error, results, fields) {
+    connection.query("SELECT d.* FROM `EcoNeighborhood`.`Desafios` AS d INNER JOIN `EcoNeighborhood`.`Acepta` AS a ON d.`id` = a.`Desafios_id` INNER JOIN `EcoNeighborhood`.`Usuario` AS u  ON a.`Usuario_email` = u.`email` WHERE u.`email` LIKE ?", [email], function (error, results, fields) {
         if (error)
             throw error;
         if (results.length > 0) {
