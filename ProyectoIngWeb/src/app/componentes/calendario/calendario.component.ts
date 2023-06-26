@@ -62,12 +62,12 @@ export class CalendarioComponent implements OnInit{
         const fechaTermino = new Date(fechaInicio);
         fechaTermino.setDate(fechaTermino.getDate() + 3);
         return {
-          title: item.Contenido,
+          title: item.descripcion,
           start: fechaInicio.toISOString(),
           end: fechaTermino.toISOString(),
           //start: '2023-06-26',
           //end: '2023-06-29',
-          contenido: item.Contenido,
+          descripcion: item.descripcion,
         };
       });
     } else {
