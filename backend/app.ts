@@ -91,6 +91,25 @@ app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`)
 })
 
+
+//Metodo para mostrar información de calendario por usuario//
+app.get("/calendario",jsonParser,(req:any, res:any) => {
+  let email=req.query.email;
+  console.log(email);
+  // mostrar los datos de un usuario segun un correo en particular 
+  connection.query("SELECT * FROM Usuario WHERE email LIKE ?", [email], function (error:any,results:any,fields:any){
+      if (error) throw error;
+      if (results.length > 0) {
+        // correo existe en la BD
+        res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+      } else {
+        // correo no existe en la BD 
+        res.send(JSON.stringify({ "mensaje": false }));
+      }
+  });
+});
+
+
 //Se define método post para api google recaptcha//
 app.post('/login', (req:any, res:any) => {
   const { token } = req.body;
