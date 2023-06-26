@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SignInService } from '../../sign-in-service.service';
+import { waitForAsync } from '@angular/core/testing';
 
 interface ApiResponse {
   mensaje: boolean;
@@ -27,28 +28,33 @@ export class IniciarsesionComponent {
     })
   }
 
+  public delay(ms: number): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
+
   private apiUrl = 'http://localhost:3000';
 
-  public enviarDatos(): void {
+  async enviarDatos(): Promise<void> {
     const email: any = this.loginForm.get('email')?.value;
     const password: any = this.loginForm.get('password')?.value;
     const url = `${this.apiUrl}/registro?email=${encodeURIComponent(email)}`; 
-    this.signInService.signInData = {
-      email: email,
-      password: password
-    };
+    let puntosUsuario: number = 0;
 
     const data = {
       "email": email, 
       "password": password, 
     };
 
-    this.http.get<ApiResponse>(url, { params: email }).subscribe(
+    this.http.get<ApiResponse>(url, { params: email}).subscribe(
         response => {
           console.log('GET request successful:', response);
           if (response.mensaje === true) {
             console.log("usuario es registrado");
             this.showSnackBar('Usuario ha ingresado sesión');
+            console.log('User points:', response.resultado);
+            puntosUsuario = response.resultado;
           }
           else {
             console.log("usuario no tiene cuenta");
@@ -60,8 +66,43 @@ export class IniciarsesionComponent {
           console.error('An error occurred:', error);
         }
       );
+      await this.delay(2000);
+      const puntos: number= puntosUsuario;
+      console.log('User puntos:', puntos); 
+      this.signInService.signInData = {
+        email: email,
+        password: password,
+        puntos: puntos
+      };
+  
+      console.log("sign in data enviar datos:");
+      console.log(this.signInService.signInData);
+      
+      // this.setSignInData(email,password,puntos);
+  };
+
+  // public setSignInData(email: string, password: string, puntos: number): void {
     
-  }
+  // };
+
+  // public getPuntos(email: string): number {
+  //   const url = `${this.apiUrl}/registro?email=${encodeURIComponent(email)}`;
+  //   let puntosUsuario = 0;
+  //   this.http.get<ApiResponse>(url).subscribe(
+  //     (response) => {
+  //       // Use the retrieved data
+  //       console.log('User points:', response.resultado);
+  //       puntosUsuario = response.resultado;
+  //       // Assign the points to a variable or use them directly in your component
+  //     },
+  //     (error) => {
+  //       console.error('Error occurred:', error);
+  //       // Handle the error appropriately
+  //     }
+  //   );
+  //   console.log("puntos usuario: ", puntosUsuario);
+  //   return puntosUsuario;
+  // };
 
   // FIXME: EL CODIGO DE ACCEDER LOS PUNTOS NO FUNCIONA
 //   async fetchData(): Promise<number> {

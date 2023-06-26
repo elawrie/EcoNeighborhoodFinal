@@ -63,7 +63,11 @@ app.get("/registro", jsonParser, function (req, res) {
             throw error;
         if (results.length > 0) {
             // correo existe en la BD
-            res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+            console.log("results:");
+            console.log(results);
+            console.log("points:");
+            console.log(results[0].puntos);
+            res.send(JSON.stringify({ "mensaje": true, "resultado": results[0].puntos }));
         }
         else {
             // correo no existe en la BD 

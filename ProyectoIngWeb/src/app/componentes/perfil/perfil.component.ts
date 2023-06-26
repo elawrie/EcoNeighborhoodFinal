@@ -25,31 +25,15 @@ export class PerfilComponent {
   public correo(): void {
     const email: any = this.signInService.signInData.email;
     this.showSnackBar(email);
-    // const url = `${this.apiUrl}/registro?email=${encodeURIComponent(email)}`; 
-
-    // const data = {
-    //   "email": email, 
-    // };
-
-    // this.http.get<ApiResponse>(url, { params: email }).subscribe(
-    //     response => {
-    //       console.log('GET request successful:', response);
-    //       if (response.mensaje === true) {
-    //         console.log("usuario es registrado");
-    //       }
-    //       else {
-    //         console.log("usuario no tiene cuenta");
-    //       }
-    //     },
-    //     error => {
-    //       console.error('An error occurred:', error);
-    //     }
-    //   );
     
   }
 
   public puntos(): void{
     const puntos: any = this.signInService.signInData.puntos;
+    console.log("perfil puntos:");
+    console.log(puntos);
+    console.log("sign in data:");
+    console.log(this.signInService.signInData);
     this.showSnackBar(puntos);
   }
 

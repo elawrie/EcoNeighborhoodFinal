@@ -15,7 +15,7 @@ app.use(cors());
 const connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '',
+    password : 'Hola1234',
     port:  3306,
     database : 'EcoNeighborhood'
   });
@@ -68,7 +68,11 @@ app.put("/registro",jsonParser,(req:any, res:any) => {
         if (error) throw error;
         if (results.length > 0) {
           // correo existe en la BD
-          res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+          console.log("results:");
+          console.log(results);
+          console.log("points:");
+          console.log(results[0].puntos);
+          res.send(JSON.stringify({ "mensaje": true, "resultado": results[0].puntos }));
         } else {
           // correo no existe en la BD 
           res.send(JSON.stringify({ "mensaje": false }));

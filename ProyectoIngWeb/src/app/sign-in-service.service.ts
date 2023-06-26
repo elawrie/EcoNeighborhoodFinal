@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SignInService {
-  signInData: any; // Variable to store sign-in form data
+  signInData: any; // variable para guardar los datos del inicio de sesion
 }
