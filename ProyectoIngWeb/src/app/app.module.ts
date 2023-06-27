@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './componentes/header/header.component';
 import { CrearcuentaComponent } from './componentes/crearcuenta/crearcuenta.component';
 import { IniciarsesionComponent } from './componentes/iniciarsesion/iniciarsesion.component';
@@ -67,6 +68,7 @@ const routes: Routes = [
     RecaptchaModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    FormsModule,
   ],
   exports: [RouterModule],
   providers: [],

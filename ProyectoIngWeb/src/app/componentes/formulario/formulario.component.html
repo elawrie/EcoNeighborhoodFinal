@@ -24,7 +24,151 @@
                 <li>
                     <div class="col-md-12">
                         <label for="reciclaje" class="form-label">¿Qué porcentaje del plástico que utilizas reciclas?</label>
-                        <input type="range" class="form-range" min="0" max="10" id="reciclaje">
+                        <div class="form-check" id="reciclaje">
+                            <input (click)="pregunta1()" class="form-check-input" type="radio" name="reciclaje" id="flexRadioDefault1" [(ngModel)]="formValues.gusto1" value="0%">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              0%
+                            </label>
+                          </div>
+                          <div class="form-check" id="reciclaje">
+                            <input (click)="pregunta1()" class="form-check-input" type="radio" name="reciclaje" id="flexRadioDefault2"[(ngModel)]="formValues.gusto1" value="25%">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              25% 
+                            </label>
+                          </div>
+                          <div class="form-check" id="reciclaje">
+                            <input (click)="pregunta1()" class="form-check-input" type="radio" name="reciclaje" id="flexRadioDefault3" [(ngModel)]="formValues.gusto1" value="50%">
+                            <label class="form-check-label" for="flexRadioDefault3">
+                              50%
+                            </label>
+                          </div>
+                          <div class="form-check" id="reciclaje">
+                            <input class="form-check-input" type="radio" name="reciclaje" id="flexRadioDefault4" [(ngModel)]="formValues.gusto1" value="75%">
+                            <label class="form-check-label" for="flexRadioDefault4">
+                              75% 
+                            </label>
+                          </div>
+                          <div class="form-check" id="reciclaje">
+                            <input class="form-check-input" type="radio" name="reciclaje" id="flexRadioDefault5" [(ngModel)]="formValues.gusto1" value="100%">
+                            <label class="form-check-label" for="flexRadioDefault5">
+                              100%
+                            </label>
+                          </div>
+                    </div>
+                    <br>
+                </li>
+                <li>
+                    <div class="col-md-12">
+                        <label for="ducha" class="form-label">¿Cuánto tiempo duran tus duchas cada día?</label>
+                        <div class="form-check" id="ducha">
+                            <input class="form-check-input" type="radio" name="ducha" id="flexRadioDefault6" [(ngModel)]="formValues.gusto2" value="5">
+                            <label class="form-check-label" for="flexRadioDefault6">
+                              Menos que 5 minutos
+                            </label>
+                          </div>
+                          <div class="form-check" id="ducha">
+                            <input class="form-check-input" type="radio" name="ducha" id="flexRadioDefault7" [(ngModel)]="formValues.gusto2" value="10">
+                            <label class="form-check-label" for="flexRadioDefault7">
+                              5 - 10 minutos 
+                            </label>
+                          </div>
+                          <div class="form-check" id="ducha">
+                            <input (click)="pregunta2()" class="form-check-input" type="radio" name="ducha" id="flexRadioDefault8" [(ngModel)]="formValues.gusto2" value="20">
+                            <label class="form-check-label" for="flexRadioDefault8">
+                              10 - 20 minutos
+                            </label>
+                          </div>
+                          <div class="form-check" id="ducha">
+                            <input (click)="pregunta2()" class="form-check-input" type="radio" name="ducha" id="flexRadioDefault9" [(ngModel)]="formValues.gusto2" value="30">
+                            <label class="form-check-label" for="flexRadioDefault9">
+                              Más que 20 minutos 
+                            </label>
+                          </div>
+                    </div>
+                    <br>
+                </li>
+                <li>
+                    <div class="col-md-12">
+                        <label for="carne" class="form-label">¿Cuántas veces comes el carne cada semana?</label>
+                        <div class="form-check" id="carne">
+                            <input class="form-check-input" type="radio" name="carne" id="flexRadioDefault10" [(ngModel)]="formValues.gusto3" value="0">
+                            <label class="form-check-label" for="flexRadioDefault10">
+                              Nunca como carne
+                            </label>
+                          </div>
+                          <div class="form-check" id="carne">
+                            <input class="form-check-input" type="radio" name="carne" id="flexRadioDefault11" [(ngModel)]="formValues.gusto3" value="1">
+                            <label class="form-check-label" for="flexRadioDefault11">
+                              1 - 2 veces
+                            </label>
+                          </div>
+                          <div class="form-check" id="carne">
+                            <input (click)="pregunta3()" class="form-check-input" type="radio" name="carne" id="flexRadioDefault12" [(ngModel)]="formValues.gusto3" value="5">
+                            <label class="form-check-label" for="flexRadioDefault12">
+                              Alrededor de 5 veces
+                            </label>
+                          </div>
+                          <div class="form-check" id="carne">
+                            <input (click)="pregunta3()" class="form-check-input" type="radio" name="carne" id="flexRadioDefault13" [(ngModel)]="formValues.gusto3" value="7">
+                            <label class="form-check-label" for="flexRadioDefault13">
+                              Como carne todos los días 
+                            </label>
+                          </div>
+                    </div>
+                    <br>
+                </li>
+                <li>
+                    <div class="col-md-12">
+                        <label for="botella" class="form-label">¿Utilizas una botella de agua reutilizable?</label>
+                        <div class="form-check" id="botella">
+                            <input class="form-check-input" type="radio" name="botella" id="flexRadioDefault14" [(ngModel)]="formValues.gusto4" value="1">
+                            <label class="form-check-label" for="flexRadioDefault14">
+                              Siempre
+                            </label>
+                          </div>
+                          <div class="form-check" id="botella">
+                            <input class="form-check-input" type="radio" name="botella" id="flexRadioDefault15" [(ngModel)]="formValues.gusto4" value="0.5">
+                            <label class="form-check-label" for="flexRadioDefault15">
+                              A veces
+                            </label>
+                          </div>
+                          <div class="form-check" id="botella">
+                            <input (click)="pregunta4()" class="form-check-input" type="radio" name="botella" id="flexRadioDefault16" [(ngModel)]="formValues.gusto4" value="0">
+                            <label class="form-check-label" for="flexRadioDefault16">
+                              Nunca 
+                            </label>
+                          </div>
+                    </div>
+                    <br>
+                </li>
+                <li>
+                    <div class="col-md-12">
+                        <label for="manejar" class="form-label">Cuando puedas, ¿usas el transporte público, caminas o compartes vehículo en vez de manejar solo/a?</label>
+                        <div class="form-check" id="manejar">
+                            <input class="form-check-input" type="radio" name="manejar" id="flexRadioDefault17" [(ngModel)]="formValues.gusto5" value="1">
+                            <label class="form-check-label" for="flexRadioDefault17">
+                              Siempre
+                            </label>
+                          </div>
+                          <div class="form-check" id="manejar">
+                            <input class="form-check-input" type="radio" name="manejar" id="flexRadioDefault18" [(ngModel)]="formValues.gusto5" value="0.5">
+                            <label class="form-check-label" for="flexRadioDefault18">
+                              A veces
+                            </label>
+                          </div>
+                          <div class="form-check" id="manejar">
+                            <input (click)="pregunta5()" class="form-check-input" type="radio" name="manejar" id="flexRadioDefault19" [(ngModel)]="formValues.gusto5" value="0">
+                            <label class="form-check-label" for="flexRadioDefault19">
+                              Nunca 
+                            </label>
+                          </div>
+                    </div>
+                    <br>
+                </li>
+                <li>
+                    <div class="col-md-12">
+                        <button (click)="ingresarDatos()" type="submit" >Ingresar datos</button>
+                        <!-- [disabled]="formulario.invalid" -->
                     </div>
                     <br>
                 </li>

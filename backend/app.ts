@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
 
 app.use(cors());
+app.use(jsonParser);
 
 const connection = mysql.createConnection({
     host     : 'localhost',
@@ -162,6 +163,35 @@ app.post('/login', (req:any, res:any) => {
       res.status(500).json({ success: false, message: 'Internal server error' });
     });
 });
+
+// formulario post
+app.post('/formulario', async (req:any, res:any) => {
+  connection.query("INSERT INTO Formulario (Usuario_email,gusto1,gusto2,gusto3,gusto4,gusto5) VALUES (?,?,?,?,?,?)",[req.body.Usuario_email,req.body.gusto1,req.body.gusto2,req.body.gusto3,req.body.gusto4,req.body.gusto5,],function(error:any,results:any,fields:any){
+    if (error) throw error;
+    res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+});
+});
+
+// formulario get 
+app.get("/formulario",jsonParser,(req:any, res:any) => {
+  let email=req.query.Usuario_email;
+  console.log("USUARIO EMAIL:");
+  console.log(email);
+  connection.query("SELECT gusto1, gusto2, gusto3, gusto4, gusto5 FROM Formulario WHERE Usuario_email LIKE ?", [email], function (error:any,results:any,fields:any){
+    if (error) throw error;
+    console.log("RESULTS OF FORM GET:");
+    console.log(results);
+    if (results.length > 0) {
+      console.log("results of form:");
+      console.log(results);
+      res.send(JSON.stringify({ "mensaje": true, "resultado": results}));
+    } else {
+      // correo no existe en la BD 
+      res.send(JSON.stringify({ "mensaje": false }));
+    }
+    // res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+});
+})
 
 // ...
 
