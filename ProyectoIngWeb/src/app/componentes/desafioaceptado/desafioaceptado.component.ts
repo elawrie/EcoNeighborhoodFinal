@@ -42,7 +42,7 @@ export class DesafioaceptadoComponent implements OnInit {
         Fecha_inicio: fechaInicio
       };
 
-      console.log("myData: " + data);
+      console.log("myData: " + JSON.stringify(data));
       this.httpClient.post('http://localhost:3000/actualizar-usuario', data).subscribe((res) => {
         console.log('Se actualizan datos con nuevo desafio en usuario');
       });

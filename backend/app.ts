@@ -167,11 +167,16 @@ app.post('/login', (req:any, res:any) => {
 
 // metodo POST para actualizar información del usuario cuando se acepta un desafio//
 app.post('/actualizar-usuario', jsonParser, (req:any, res:any) => {
-  const usuarioEmail = req.body.Usuario_email;
-  const desafiosId = req.body.Desafios_id;
-  const status = req.body.Status;
-  const fechaInicio = req.body.Fecha_inicio;
+  let usuarioEmail = req.body.Usuario_email;
+  let desafiosId = req.body.Desafios_id;
+  let  status = req.body.Status;
+  let  fechaInicio = req.body.Fecha_inicio;
 
+  const query = 'UPDATE Acepta SET Status = ?, Fecha_inicio = ? WHERE Usuario_email = ? AND Desafios_id = ?';
+  console.log('SQL query:', query);
+  console.log('Parameters:', status, fechaInicio, usuarioEmail, desafiosId);
+
+  console.log("Datos actualizar:" + usuarioEmail, desafiosId, status, fechaInicio);
   connection.query(
     'UPDATE Acepta SET Status = ?, Fecha_inicio = ? WHERE Usuario_email = ? AND Desafios_id = ?',
     [status, fechaInicio, usuarioEmail, desafiosId],
@@ -180,6 +185,7 @@ app.post('/actualizar-usuario', jsonParser, (req:any, res:any) => {
         console.error('Error updating user information:', error);
         res.send(JSON.stringify({ mensaje: false, error: error.message }));
       } else {
+        console.log("exito en la aceptación de nuevo desafío");
         res.send(JSON.stringify({ mensaje: true, resultado: results }));
       }
     }

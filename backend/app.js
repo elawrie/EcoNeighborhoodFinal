@@ -162,12 +162,17 @@ app.post('/actualizar-usuario', jsonParser, function (req, res) {
     var desafiosId = req.body.Desafios_id;
     var status = req.body.Status;
     var fechaInicio = req.body.Fecha_inicio;
+    var query = 'UPDATE Acepta SET Status = ?, Fecha_inicio = ? WHERE Usuario_email = ? AND Desafios_id = ?';
+    console.log('SQL query:', query);
+    console.log('Parameters:', status, fechaInicio, usuarioEmail, desafiosId);
+    console.log("Datos actualizar:" + usuarioEmail, desafiosId, status, fechaInicio);
     connection.query('UPDATE Acepta SET Status = ?, Fecha_inicio = ? WHERE Usuario_email = ? AND Desafios_id = ?', [status, fechaInicio, usuarioEmail, desafiosId], function (error, results, fields) {
         if (error) {
             console.error('Error updating user information:', error);
             res.send(JSON.stringify({ mensaje: false, error: error.message }));
         }
         else {
+            console.log("exito en la aceptación de nuevo desafío");
             res.send(JSON.stringify({ mensaje: true, resultado: results }));
         }
     });
