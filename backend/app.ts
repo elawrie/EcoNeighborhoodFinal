@@ -133,7 +133,6 @@ app.get("/calendario",jsonParser,(req:any, res:any) => {
 });
 
 
-
 //Se define método post para api google recaptcha//
 app.post('/login', (req:any, res:any) => {
   const { token } = req.body;
@@ -163,3 +162,28 @@ app.post('/login', (req:any, res:any) => {
       res.status(500).json({ success: false, message: 'Internal server error' });
     });
 });
+
+// ...
+
+// metodo POST para actualizar información del usuario cuando se acepta un desafio//
+app.post('/actualizar-usuario', jsonParser, (req:any, res:any) => {
+  const usuarioEmail = req.body.Usuario_email;
+  const desafiosId = req.body.Desafios_id;
+  const status = req.body.Status;
+  const fechaInicio = req.body.Fecha_inicio;
+
+  connection.query(
+    'UPDATE Acepta SET Status = ?, Fecha_inicio = ? WHERE Usuario_email = ? AND Desafios_id = ?',
+    [status, fechaInicio, usuarioEmail, desafiosId],
+    function (error:any, results:any, fields:any) {
+      if (error) {
+        console.error('Error updating user information:', error);
+        res.send(JSON.stringify({ mensaje: false, error: error.message }));
+      } else {
+        res.send(JSON.stringify({ mensaje: true, resultado: results }));
+      }
+    }
+  );
+});
+
+
