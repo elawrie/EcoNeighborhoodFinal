@@ -71,31 +71,7 @@ export class FormularioComponent {
         console.error('Error saving form data:', error);
       }
     );
-    // const email: any = this.formulario.get('reciclaje')?.value;
-    // const password: any = this.formulario.get('password')?.value;
-    
 
-    // this.signInService.signInData = {
-    //   email: email,
-    //   password: password,
-    //   puntos: 0
-    // };
-
-    // const data = {
-    //   "email": email, 
-    //   "password": password, 
-    //   "puntos": 0 
-    // };
-
-    // this.http.put<any>(url, data)
-    //   .subscribe(
-    //     response => {
-    //       console.log('PUT request successful:', response);
-    //     },
-    //     error => {
-    //       console.error('An error occurred:', error);
-    //     }
-    //   );
   }
 
   userForm() {

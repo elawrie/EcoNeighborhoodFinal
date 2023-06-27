@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SignInService } from '../../sign-in-service.service';
 
+interface ApiResponse {
+  mensaje: boolean;
+  resultado: any; 
+}
+
 @Component({
   selector: 'app-desafioaceptado',
   templateUrl: './desafioaceptado.component.html',
@@ -41,6 +46,23 @@ export class DesafioaceptadoComponent implements OnInit {
         Status: status,
         Fecha_inicio: fechaInicio
       };
+      this.signInService.signInData.puntos += 1;
+      console.log("DESAFIO ACEPTADO, PUNTO ANADIDO");
+
+      const apiUrl = 'http://localhost:3000';
+      const url = `${apiUrl}/desafioaceptado?email=${encodeURIComponent(this.signInService.signInData.email)}`; 
+      this.httpClient.post<ApiResponse>(url, this.signInService.signInData.email).subscribe(
+        (response) => {
+          // Handle success
+          console.log('Point incremented successfully!');
+          console.log("VALOR DEL PUNTO");
+          console.log(response);
+        },
+        (error) => {
+          // Handle error
+          console.error('Error saving form data:', error);
+        }
+      );
 
       console.log("myData: " + JSON.stringify(data));
       this.httpClient.post('http://localhost:3000/actualizar-usuario', data).subscribe((res) => {

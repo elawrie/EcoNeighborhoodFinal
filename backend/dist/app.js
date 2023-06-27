@@ -132,6 +132,19 @@ app.get("/ranking", jsonParser, function (req, res) {
         // res.send(JSON.stringify({"mensaje":true,"resultado":results}));
     });
 });
+// post desafio aceptado
+app.post("/desafioaceptado", jsonParser, function (req, res) {
+    var email = req.query.email;
+    console.log(email);
+    // mostrar los datos de un usuario segun un correo en particular 
+    connection.query("UPDATE Usuario SET puntos = puntos + 1 WHERE email = ?;", [email], function (error, results, fields) {
+        if (error)
+            throw error;
+        console.log("puntos incrementado");
+        res.send(JSON.stringify({ "mensaje": true, "resultado": results }));
+        // res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+    });
+});
 // metodo DELETE
 app.delete("/registro", jsonParser, function (req, res) {
     var email = req.body.email;

@@ -100,6 +100,19 @@ app.put("/registro",jsonParser,(req:any, res:any) => {
   });
   })
 
+  // post desafio aceptado
+  app.post("/desafioaceptado",jsonParser,(req:any, res:any) => {
+    let email=req.query.email;
+    console.log(email);
+    // mostrar los datos de un usuario segun un correo en particular 
+    connection.query("UPDATE Usuario SET puntos = puntos + 1 WHERE email = ?;", [email], function (error:any,results:any,fields:any){
+        if (error) throw error;
+        console.log("puntos incrementado");
+        res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+        // res.send(JSON.stringify({"mensaje":true,"resultado":results}));
+    });
+  });
+
 
   // metodo DELETE
   app.delete("/registro",jsonParser,(req:any, res:any) => {
