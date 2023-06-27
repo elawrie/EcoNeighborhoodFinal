@@ -49,7 +49,8 @@ export class CalendarioComponent implements OnInit{
         this.calendarOptions.events = events;
       },
       (error) => {
-        console.error('Error fetching events:', error);
+        console.log('Error fetching events:', error);
+        this.calendarOptions.events = [];
       }
     );
   };
